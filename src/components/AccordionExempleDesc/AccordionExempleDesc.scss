@@ -1,0 +1,89 @@
+.accordion-example {
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #f7f7f7;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #f0f0f0;
+}
+
+.accordion-title {
+  flex: 1;
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: #555;
+}
+
+.accordion-icon.open {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: #fff;
+}
+
+.accordion-content.open {
+  max-height: fit-content;
+  padding: 16px;
+}
+
+.accordion-inner {
+  color: #444;
+  line-height: 1.6;
+}
+
+.accordion-inner p {
+  margin: 0 0 12px;
+}
+
+.accordion-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-inner code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.accordion-inner pre {
+  background-color: #f4f4f4;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.accordion-inner ul, .accordion-inner ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}

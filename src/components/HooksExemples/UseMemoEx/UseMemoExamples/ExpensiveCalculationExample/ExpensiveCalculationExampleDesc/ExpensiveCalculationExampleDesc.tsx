@@ -1,0 +1,350 @@
+import { FC } from 'react';
+import AccordionExempleDesc from '@/components/AccordionExempleDesc/AccordionExempleDesc';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+const ExpensiveCalculationExampleDesc: FC = () => {
+    const codeExample = `import { FC, useState, useMemo, useEffect } from 'react';
+
+// Функция для "дорогих" вычислений (имитация тяжелой операции)
+const expensiveCalculation = (num: number): number => {
+    // Имитация долгих вычислений - 100 миллионов итераций
+    let result = 0;
+    for (let i = 0; i < 100000000; i++) {
+        result += num;
+    }
+    return result / 100000000;
+};
+
+const ExpensiveCalculationExample: FC = () => {
+    const [count, setCount] = useState<number>(1);
+    const [renderCount, setRenderCount] = useState<number>(0);
+    const [calculationTime, setCalculationTime] = useState<number>(0);
+
+    // Шаг 1: Использование useMemo для мемоизации дорогих вычислений
+    const memoizedValue = useMemo(() => {
+        const startTime = performance.now();
+        const result = expensiveCalculation(count);
+        const endTime = performance.now();
+        setCalculationTime(endTime - startTime);
+        return result;
+    }, [count]); // Зависимость - count
+
+    // Счетчик перерисовок компонента
+    useEffect(() => {
+        setRenderCount(prev => prev + 1);
+    }, []);
+
+    return (
+        <div className='result-block'>
+            <h3>Пример 1: Оптимизация дорогих вычислений с useMemo</h3>
+
+            <div className='expense-calc-container'>
+                <div className='expense-calc-panel'>
+                    <h4>Управление</h4>
+                    <p>Текущее число: <span className='highlight'>{count}</span></p>
+                    <button className='btn' onClick={() => setCount(count + 1)}>
+                        Увеличить число
+                    </button>
+                </div>
+
+                <div className='expense-calc-panel'>
+                    <h4>Результаты</h4>
+                    <p>Результат вычислений: <span className='highlight'>{memoizedValue.toFixed(4)}</span></p>
+                    <p>Время вычисления: <span className='highlight'>{calculationTime.toFixed(2)} ms</span></p>
+                    <p>Количество перерисовок: <span className='highlight'>{renderCount}</span></p>
+                </div>
+            </div>
+
+            <div className='expense-calc-info'>
+                <h4>🔍 Что происходит:</h4>
+                <ul>
+                    <li><strong>useMemo</strong> кэширует результат вычислений</li>
+                    <li>Вычисления выполняются только когда меняется <code>count</code></li>
+                    <li>При повторных рендерах с тем же <code>count</code> - используется кэшированное значение</li>
+                    <li>Время вычисления показывает "стоимость" операции</li>
+                </ul>
+            </div>
+
+            <p className='message info'>
+                Попробуйте быстро нажимать "Увеличить число" - вычисления выполняются только при изменении числа
+            </p>
+        </div>
+    );
+};
+
+export default ExpensiveCalculationExample;`;
+
+    return (
+        <AccordionExempleDesc title='Описание примера 1: Оптимизация вычислений с useMemo'>
+            <div style={{ marginBottom: '25px' }}>
+                <h4>Пошаговая процедура подключения useMemo для оптимизации вычислений:</h4>
+
+                <SyntaxHighlighter
+                    language='typescript'
+                    style={coy}
+                    customStyle={{
+                        borderRadius: '8px',
+                        fontSize: '14px',
+                        marginTop: '15px',
+                        backgroundColor: '#f8f9fa',
+                    }}
+                >
+                    {codeExample}
+                </SyntaxHighlighter>
+
+                <div style={{ marginTop: '20px' }}>
+                    <h5>Шаги работы с useMemo для дорогих вычислений:</h5>
+                    <ol>
+                        <li style={{ marginBottom: '10px' }}>
+                            <strong>Создание "дорогой" функции:</strong>
+                            <br />
+                            <code>
+                                const expensiveCalculation = (num: number): number ={'>'} {'{ ... }'};
+                            </code>
+                            <br />
+                            <small>• Имитирует тяжелые вычисления (100 млн итераций)</small>
+                            <br />
+                            <small>• Выполняется медленно и потребляет ресурсы</small>
+                            <br />
+                            <small>
+                                • В реальных приложениях это могут быть сложные алгоритмы, преобразования данных
+                            </small>
+                        </li>
+                        <li style={{ marginBottom: '10px' }}>
+                            <strong>Мемоизация с useMemo:</strong>
+                            <br />
+                            <code>
+                                const memoizedValue = useMemo(() ={'>'} {'{ ... }'}, [count]);
+                            </code>
+                            <br />
+                            <small>• Функция выполняется только при изменении зависимостей</small>
+                            <br />
+                            <small>
+                                • При одинаковом <code>count</code> возвращается кэшированное значение
+                            </small>
+                            <br />
+                            <small>• Измеряем время выполнения для демонстрации оптимизации</small>
+                        </li>
+                        <li style={{ marginBottom: '10px' }}>
+                            <strong>Массив зависимостей:</strong>
+                            <br />
+                            <code>[count] // Пересчет только при изменении count</code>
+                            <br />
+                            <small>• Указываем переменные, от которых зависит вычисление</small>
+                            <br />
+                            <small>• При изменении других состояний (не count) вычисление не выполняется</small>
+                            <br />
+                            <small>• Кэшированное значение используется до изменения зависимостей</small>
+                        </li>
+                        <li style={{ marginBottom: '10px' }}>
+                            <strong>Измерение производительности:</strong>
+                            <br />
+                            <code>const startTime = performance.now();</code>
+                            <br />
+                            <code>const endTime = performance.now();</code>
+                            <br />
+                            <small>• Показываем время выполнения вычислений</small>
+                            <br />
+                            <small>• Демонстрируем выгоду от мемоизации</small>
+                            <br />
+                            <small>• В продакшене убираем измерение времени</small>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div>
+                <h5>Правила использования useMemo:</h5>
+
+                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useMemo:</h6>
+                    <ul>
+                        <li>
+                            <strong>Дорогие вычисления</strong> - сложные математические операции, обработка больших
+                            массивов
+                        </li>
+                        <li>
+                            <strong>Создание объектов/массивов</strong> - когда нужно сохранить ссылку для
+                            предотвращения лишних рендеров
+                        </li>
+                        <li>
+                            <strong>Стабильные ссылки</strong> - для пропсов, которые передаются в memo-компоненты
+                        </li>
+                        <li>
+                            <strong>Оптимизация производительности</strong> - когда вычисления занимают заметное время{' '}
+                            {`(>1ms)`}
+                        </li>
+                        <li>
+                            <strong>Сложные преобразования данных</strong> - фильтрация, сортировка, агрегация больших
+                            наборов данных
+                        </li>
+                    </ul>
+
+                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useMemo:</h6>
+                    <ul>
+                        <li>
+                            <strong>Простые вычисления</strong> - операции, которые выполняются быстро {`(<0.1ms)`}
+                        </li>
+                        <li>
+                            <strong>По умолчанию</strong> - не используйте везде "на всякий случай"
+                        </li>
+                        <li>
+                            <strong>Для побочных эффектов</strong> - используйте useEffect
+                        </li>
+                        <li>
+                            <strong>Когда зависимости часто меняются</strong> - useMemo будет бесполезен
+                        </li>
+                        <li>
+                            <strong>Для примитивных значений</strong> - простые строки, числа, булевы значения
+                        </li>
+                    </ul>
+                </div>
+
+                <h5>Как работает useMemo в этом примере:</h5>
+                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🔄 Процесс выполнения:</h6>
+
+                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                        <thead>
+                            <tr style={{ backgroundColor: '#c8e6c9' }}>
+                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
+                                    Действие
+                                </th>
+                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
+                                    useMemo поведение
+                                </th>
+                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
+                                    Производительность
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Первое нажатие кнопки</td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Выполняется вычисление, результат кэшируется
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Медленно (измеряемое время)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Повторное нажатие с тем же count
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Используется кэшированное значение
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Мгновенно</td>
+                            </tr>
+                            <tr>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Изменение count</td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Выполняется новое вычисление
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Медленно (только при изменении)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Другие изменения состояния
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                    Используется кэшированное значение
+                                </td>
+                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Мгновенно</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5>Практические примеры использования useMemo:</h5>
+                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎯 Реальные сценарии применения:</h6>
+
+                    <p>
+                        <strong>1. Фильтрация и сортировка больших списков:</strong>
+                    </p>
+                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        {`const filteredUsers = useMemo(() => {
+    return users
+        .filter(user => user.active)
+        .sort((a, b) => a.name.localeCompare(b.name));
+}, [users]); // Пересчет только при изменении users`}
+                    </pre>
+
+                    <p>
+                        <strong>2. Сложные математические вычисления:</strong>
+                    </p>
+                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        {`const chartData = useMemo(() => {
+    return rawData.map(item => ({
+        x: item.timestamp,
+        y: calculateMovingAverage(item.values)
+    }));
+}, [rawData]); // Тяжелое преобразование данных`}
+                    </pre>
+
+                    <p>
+                        <strong>3. Стабильные ссылки для memo-компонентов:</strong>
+                    </p>
+                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        {`const chartConfig = useMemo(() => ({
+    type: 'line',
+    animation: { duration: 1000 },
+    responsive: true
+}), []); // Пустой массив - создается один раз`}
+                    </pre>
+                </div>
+
+                <h5>Стоимость использования useMemo:</h5>
+                <ul>
+                    <li>
+                        <strong>Память:</strong> useMemo хранит кэшированные значения в памяти
+                    </li>
+                    <li>
+                        <strong>Сравнение зависимостей:</strong> React сравнивает зависимости при каждом рендере
+                    </li>
+                    <li>
+                        <strong>Сложность:</strong> добавляет сложность в код и отладку
+                    </li>
+                    <li>
+                        <strong>Преждевременная оптимизация:</strong> может быть избыточным для простых случаев
+                    </li>
+                </ul>
+
+                <h5>Лучшие практики:</h5>
+                <ul>
+                    <li>
+                        <strong>Измеряйте производительность</strong> перед добавлением useMemo
+                    </li>
+                    <li>
+                        <strong>Используйте React DevTools Profiler</strong> для идентификации узких мест
+                    </li>
+                    <li>
+                        <strong>Начинайте без useMemo</strong> и добавляйте только при доказанных проблемах
+                    </li>
+                    <li>
+                        <strong>Правильно указывайте зависимости</strong> для избежания багов
+                    </li>
+                    <li>
+                        <strong>Документируйте сложные вычисления</strong> с комментариями
+                    </li>
+                </ul>
+
+                <p>
+                    <strong>Производительность:</strong> В этом примере useMemo предотвращает выполнение дорогих
+                    вычислений при каждом рендере, что значительно улучшает отзывчивость интерфейса.
+                </p>
+                <p>
+                    <strong>Память:</strong> useMemo использует дополнительную память для хранения кэшированных
+                    значений, но эта стоимость обычно оправдана для дорогих вычислений.
+                </p>
+            </div>
+        </AccordionExempleDesc>
+    );
+};
+
+export default ExpensiveCalculationExampleDesc;
