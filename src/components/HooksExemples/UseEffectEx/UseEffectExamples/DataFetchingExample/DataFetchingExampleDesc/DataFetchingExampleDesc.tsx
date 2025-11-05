@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import AccordionExempleDesc from '@/components/AccordionExempleDesc/AccordionExempleDesc';
+import AccordionExempleDesc from '@/components/AccordionExempleDesc/AccordionExempleDesc.component';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -73,11 +73,7 @@ export default DataFetchingExample;`;
             <div className='description-container'>
                 <h4>Пошаговая процедура подключения useEffect для загрузки данных:</h4>
 
-                <SyntaxHighlighter
-                    language='typescript'
-                    style={coy}
-                    className='code-highlighter'
-                >
+                <SyntaxHighlighter language='typescript' style={coy} className='code-highlighter'>
                     {codeExample}
                 </SyntaxHighlighter>
 
