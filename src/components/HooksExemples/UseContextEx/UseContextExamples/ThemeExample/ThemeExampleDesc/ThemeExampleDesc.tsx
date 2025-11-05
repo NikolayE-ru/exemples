@@ -71,26 +71,21 @@ export default ThemeExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Работа с useContext'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className="description-container">
                 <h4>Пошаговая процедура подключения useContext:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className="code-highlighter"
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className="steps-container">
                     <h5>Шаги работы с useContext:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Создание контекста:</strong>
                             <br />
                             <code>const ThemeContext = createContext{`<ThemeType>`}('light');</code>
@@ -101,7 +96,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Экспортируем для использования в других компонентах</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Оборачивание в Provider:</strong>
                             <br />
                             <code>{`<ThemeContext.Provider value={theme}>`}</code>
@@ -112,7 +107,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Все дочерние компоненты получат обновления</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Использование useContext в компонентах:</strong>
                             <br />
                             <code>const theme = useContext(ThemeContext);</code>
@@ -123,7 +118,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Перерисовка при изменении значения в Provider</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Обновление контекста:</strong>
                             <br />
                             <code>setTheme(prev ={'>'} prev === 'light' ? 'dark' : 'light');</code>
@@ -141,8 +136,8 @@ export default ThemeExample;`;
             <div>
                 <h5>Правила использования useContext:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useContext:</h6>
+                <div className="rules-container">
+                    <h6 className="rules-title positive">✅ Когда использовать useContext:</h6>
                     <ul>
                         <li>
                             <strong>"Пропс-дриллинг"</strong> - когда нужно передавать данные через много уровней
@@ -160,7 +155,7 @@ export default ThemeExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useContext:</h6>
+                    <h6 className="rules-title negative">❌ Когда НЕ использовать useContext:</h6>
                     <ul>
                         <li>
                             <strong>Локальные состояния</strong> - используйте useState

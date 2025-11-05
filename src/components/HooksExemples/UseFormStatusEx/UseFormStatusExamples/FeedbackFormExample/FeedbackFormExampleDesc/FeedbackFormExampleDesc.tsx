@@ -88,26 +88,21 @@ export default FeedbackFormExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Работа с useFormStatus'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useFormStatus:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useFormStatus:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Импорт хука из react-dom:</strong>
                             <br />
                             <code>import {`useFormStatus `} from 'react-dom';</code>
@@ -118,7 +113,7 @@ export default FeedbackFormExample;`;
                             <br />
                             <small>• Требует React 19+</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Использование внутри компонента формы:</strong>
                             <br />
                             <code>const {`pending `} = useFormStatus();</code>
@@ -135,7 +130,7 @@ export default FeedbackFormExample;`;
                                 • <code>pending = false</code> когда форма неактивна
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание формы с action:</strong>
                             <br />
                             <code>{`<form action={handleSubmit}>`}</code>
@@ -148,7 +143,7 @@ export default FeedbackFormExample;`;
                             <br />
                             <small>• React автоматически управляет состоянием отправки</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Размещение компонентов внутри формы:</strong>
                             <br />
                             <code>{`<form><SubmitButton /></form>`}</code>
@@ -166,8 +161,8 @@ export default FeedbackFormExample;`;
             <div>
                 <h5>Правила использования useFormStatus:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useFormStatus:</h6>
+                <div className='rules-container'>
+                    <h6 className='rules-title-positive'>✅ Когда использовать useFormStatus:</h6>
                     <ul>
                         <li>
                             <strong>Индикаторы загрузки</strong> - показывать прогресс отправки формы
@@ -186,7 +181,7 @@ export default FeedbackFormExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useFormStatus:</h6>
+                    <h6 className='rules-title-negative'>❌ Когда НЕ использовать useFormStatus:</h6>
                     <ul>
                         <li>
                             <strong>Вне форм</strong> - хук работает только внутри компонентов формы
@@ -207,75 +202,63 @@ export default FeedbackFormExample;`;
                 </div>
 
                 <h5>Свойства, возвращаемые useFormStatus:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>📊 Объект статуса формы:</h6>
+                <div className='status-properties-container'>
+                    <h6 className='status-properties-title'>📊 Объект статуса формы:</h6>
 
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <table className='status-table'>
                         <thead>
-                            <tr style={{ backgroundColor: '#c8e6c9' }}>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Свойство
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>Тип</th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Описание
-                                </th>
+                            <tr>
+                                <th>Свойство</th>
+                                <th>Тип</th>
+                                <th>Описание</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>pending</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>boolean</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
-                                    true когда форма отправляется, false когда нет
-                                </td>
+                                <td>boolean</td>
+                                <td>true когда форма отправляется, false когда нет</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>data</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>FormData</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
-                                    данные формы, которые отправляются
-                                </td>
+                                <td>FormData</td>
+                                <td>данные формы, которые отправляются</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>method</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>string</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
-                                    HTTP метод (GET, POST, etc.)
-                                </td>
+                                <td>string</td>
+                                <td>HTTP метод (GET, POST, etc.)</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>action</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Function</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
-                                    функция, переданная в action формы
-                                </td>
+                                <td>Function</td>
+                                <td>функция, переданная в action формы</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h5>Практические примеры использования:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎯 Распространенные сценарии:</h6>
+                <div className='examples-container'>
+                    <h6 className='examples-title'>🎯 Распространенные сценарии:</h6>
 
                     <p>
                         <strong>1. Умная кнопка отправки:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const SubmitButton = () => {
     const { pending } = useFormStatus();
     return (
-        <button 
-            type="submit" 
+        <button
+            type="submit"
             disabled={pending}
             className={pending ? 'loading' : ''}
         >
@@ -295,7 +278,7 @@ export default FeedbackFormExample;`;
                     <p>
                         <strong>2. Индикатор прогресса:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const ProgressIndicator = () => {
     const { pending } = useFormStatus();
     return pending ? <div className="progress-bar" /> : null;
@@ -305,7 +288,7 @@ export default FeedbackFormExample;`;
                     <p>
                         <strong>3. Блокировка полей формы:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const FormFields = () => {
     const { pending } = useFormStatus();
     return (

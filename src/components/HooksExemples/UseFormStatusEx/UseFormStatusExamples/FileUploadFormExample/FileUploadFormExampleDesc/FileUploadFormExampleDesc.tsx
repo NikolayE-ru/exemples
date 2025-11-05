@@ -13,10 +13,10 @@ const SubmitButton: FC = () => {
     const { pending } = useFormStatus();
 
     return (
-        <button 
-            type='submit' 
-            className='btn' 
-            disabled={pending} 
+        <button
+            type='submit'
+            className='btn'
+            disabled={pending}
             aria-disabled={pending}
         >
             {pending ? 'Загрузка...' : 'Загрузить'}
@@ -66,12 +66,12 @@ const FileUploadFormExample: FC = () => {
 
             <div className='form-group'>
                 <label htmlFor='file'>Выберите файл:</label>
-                <input 
-                    type='file' 
-                    id='file' 
-                    name='file' 
-                    onChange={handleFileChange} 
-                    required 
+                <input
+                    type='file'
+                    id='file'
+                    name='file'
+                    onChange={handleFileChange}
+                    required
                 />
                 {fileName && <p className='file-name'>Выбран файл: {fileName}</p>}
             </div>
@@ -90,26 +90,17 @@ export default FileUploadFormExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Загрузка файлов с useFormStatus'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useFormStatus для загрузки файлов:</h4>
 
-                <SyntaxHighlighter
-                    language='typescript'
-                    style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
-                >
+                <SyntaxHighlighter language='typescript' style={coy} className='code-highlighter'>
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useFormStatus для загрузки файлов:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание кнопки отправки с useFormStatus:</strong>
                             <br />
                             <code>const {` pending `} = useFormStatus();</code>
@@ -122,7 +113,7 @@ export default FileUploadFormExample;`;
                             <br />
                             <small>• Блокирует кнопку и меняет текст во время загрузки</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Индикатор прогресса загрузки:</strong>
                             <br />
                             <code>if (!pending) return null;</code>
@@ -133,7 +124,7 @@ export default FileUploadFormExample;`;
                             <br />
                             <small>• Можно использовать в нескольких местах формы</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обработчик загрузки файла:</strong>
                             <br />
                             <code>async function handleSubmit(formData: FormData) {'{ ... }'}</code>
@@ -144,7 +135,7 @@ export default FileUploadFormExample;`;
                             <br />
                             <small>• Очищает состояние после успешной загрузки</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Управление состоянием файла:</strong>
                             <br />
                             <code>const [fileName, setFileName] = useState{`<string>`}('');</code>
@@ -161,8 +152,8 @@ export default FileUploadFormExample;`;
 
             <div>
                 <h5>Особенности useFormStatus для загрузки файлов:</h5>
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>📁 Специфика работы с файлами:</h6>
+                <div className='file-features-container'>
+                    <h6 className='file-features-title'>📁 Специфика работы с файлами:</h6>
 
                     <ul>
                         <li>
@@ -184,8 +175,8 @@ export default FileUploadFormExample;`;
                 </div>
 
                 <h5>Поток данных при загрузке файла:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🔄 Последовательность событий:</h6>
+                <div className='data-flow-container'>
+                    <h6 className='data-flow-title'>🔄 Последовательность событий:</h6>
 
                     <ol>
                         <li>
@@ -211,13 +202,13 @@ export default FileUploadFormExample;`;
                 </div>
 
                 <h5>Дополнительные возможности для улучшения UX:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎨 Улучшения пользовательского опыта:</h6>
+                <div className='ux-improvements-container'>
+                    <h6 className='ux-improvements-title'>🎨 Улучшения пользовательского опыта:</h6>
 
                     <p>
                         <strong>1. Отображение размера файла:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
         const file = e.target.files[0];
@@ -230,7 +221,7 @@ export default FileUploadFormExample;`;
                     <p>
                         <strong>2. Валидация типа файла:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -247,18 +238,18 @@ export default FileUploadFormExample;`;
                     <p>
                         <strong>3. Прогресс загрузки в реальном времени:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`// В реальном приложении с XMLHttpRequest или fetch
 const handleSubmit = async (formData: FormData) => {
     const xhr = new XMLHttpRequest();
-    
+
     xhr.upload.onprogress = (event) => {
         if (event.lengthComputable) {
             const percent = (event.loaded / event.total) * 100;
             setUploadProgress(percent);
         }
     };
-    
+
     // ... остальной код загрузки
 };`}
                     </pre>

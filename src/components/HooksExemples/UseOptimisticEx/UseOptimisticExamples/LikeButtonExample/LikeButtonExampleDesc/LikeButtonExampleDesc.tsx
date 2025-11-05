@@ -30,7 +30,7 @@ const LikeButtonExample: FC = () => {
 
             // Обновляем реальное состояние после ответа сервера
             setLikes(newLikes);
-            
+
             // useOptimistic автоматически синхронизируется с likes
         });
     }
@@ -41,9 +41,9 @@ const LikeButtonExample: FC = () => {
             <h3>Пример 2: Кнопка лайка с оптимистичным обновлением</h3>
 
             <div className='like-container'>
-                <button 
-                    className='btn like-button' 
-                    onClick={handleLike} 
+                <button
+                    className='btn like-button'
+                    onClick={handleLike}
                     disabled={isPending}
                 >
                     ❤️ Нравится
@@ -66,26 +66,21 @@ export default LikeButtonExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: useOptimistic с useTransition'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useOptimistic с useTransition:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useOptimistic и useTransition:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация состояний:</strong>
                             <br />
                             <code>const [likes, setLikes] = useState{`<number>`}(42);</code>
@@ -104,7 +99,7 @@ export default LikeButtonExample;`;
                                 • <code>isPending</code> показывает состояние перехода
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Настройка useOptimistic:</strong>
                             <br />
                             <code>useOptimistic(likes, (_, newLikes) ={'>'} newLikes)</code>
@@ -119,7 +114,7 @@ export default LikeButtonExample;`;
                                 • <code>newLikes</code> - новое значение для установки
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обработчик с useTransition:</strong>
                             <br />
                             <code>
@@ -134,7 +129,7 @@ export default LikeButtonExample;`;
                             <br />
                             <small>• В конце обновление реального состояния</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Визуальная обратная связь:</strong>
                             <br />
                             <code>disabled={`{isPending}`}</code> - блокировка кнопки
@@ -170,7 +165,7 @@ export default LikeButtonExample;`;
                       <ol><strong>-</strong> <code>isPending</code>: Флаг, что запрос выполняется. Полезно для блокировки UI (например, кнопки).</ol>
                       <ol><strong>-</strong> <code>startTransition</code>: Функция для обертки асинхронного действия.</ol>
                       <ol><strong>-</strong> В <code>useActionState</code> состояние ошибки обрабатывается "из коробки".</ol>
-                      <ol><strong>- Что делать при ошибке: </strong> Когда запрос завершается ошибкой, <code>useOptimistic</code> автоматически откатит <code>optimisticState</code> к актуальному <code>state</code>. Ваш UI должен быть готов к этому. Например, если вы показывали временное сообщение в чате, оно исчезнет при ошибке. Убедитесь, что вы уведомляете пользователя об ошибке (например, через тост).
+                      <ol><strong>- </strong>Что делать при ошибке:  Когда запрос завершается ошибкой, <code>useOptimistic</code> автоматически откатит <code>optimisticState</code> к актуальному <code>state</code>. Ваш UI должен быть готов к этому. Например, если вы показывали временное сообщение в чате, оно исчезнет при ошибке. Убедитесь, что вы уведомляете пользователя об ошибке (например, через тост).
                       </ol>
                       <ol><strong>-</strong> Оптимистичные обновления — не панацея. Их лучше всего применять для действий, которые с высокой вероятностью завершатся успехом (лайки, отправка сообщений, добавление в корзину). Не используйте для критически важных операций (например, финансовых транзакций), где откат был бы очень болезненным для пользователя!</ol>
                     </li>

@@ -67,26 +67,21 @@ export default ObjectExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Работа с объектами'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура работы с объектами в useState:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с объектами:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Определение типа и инициализация:</strong>
                             <br />
                             <code>interface UserProps {'{ name: string; age: number; email: string; }'}</code>
@@ -101,7 +96,7 @@ export default ObjectExample;`;
                                 • Указываем тип <code>UserProps</code> для строгой типизации
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обновление объекта (иммутабельный подход):</strong>
                             <br />
                             <code>{`setUser((prevUser) => ({ ...prevUser, name: newName }))`}</code>
@@ -114,7 +109,7 @@ export default ObjectExample;`;
                             <br />
                             <small>• Создается новый объект, а не изменяется старый</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обновление на основе предыдущего значения:</strong>
                             <br />
                             <code>{`age: prevUser.age + 1`}</code>
@@ -123,7 +118,7 @@ export default ObjectExample;`;
                             <br />
                             <small>• Вычисляем новое значение на основе предыдущего</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Доступ к свойствам в JSX:</strong>
                             <br />
                             <code>

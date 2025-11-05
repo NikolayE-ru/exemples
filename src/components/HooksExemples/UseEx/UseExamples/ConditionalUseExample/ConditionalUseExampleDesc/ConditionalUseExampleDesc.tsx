@@ -32,16 +32,16 @@ const DataFetcher: FC<{ promise: Promise<DataItem> }> = ({ promise }) => {
 // Компонент, который демонстрирует условное использование use
 const ConditionalUseExample: FC = () => {
     const [showData, setShowData] = useState<boolean>(false);
-    
+
     // Шаг 2: Создание промиса, который будет передан в use
     const [dataPromise] = useState<Promise<DataItem>>(
         () =>
             new Promise((resolve) =>
-                setTimeout(() => 
-                    resolve({ 
-                        id: 1, 
-                        title: 'Данные, загруженные через промис' 
-                    }), 
+                setTimeout(() =>
+                    resolve({
+                        id: 1,
+                        title: 'Данные, загруженные через промис'
+                    }),
                     2000
                 ),
             ),
@@ -76,26 +76,21 @@ export default ConditionalUseExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 3: Условное использование хука use'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения хука use:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с хуком use:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание компонента с use:</strong>
                             <br />
                             <code>const data = use(promise);</code>
@@ -106,7 +101,7 @@ export default ConditionalUseExample;`;
                             <br />
                             <small>• При ошибке промиса будет выброшено исключение</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Подготовка промиса:</strong>
                             <br />
                             <code>
@@ -119,7 +114,7 @@ export default ConditionalUseExample;`;
                             <br />
                             <small>• Промис имитирует загрузку данных с задержкой 2 секунды</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Условное использование (главная особенность use):</strong>
                             <br />
                             <code>{`{showData ? <DataFetcher promise={dataPromise} /> : <p>Данные скрыты</p>}`}</code>
@@ -130,7 +125,7 @@ export default ConditionalUseExample;`;
                             <br />
                             <small>• Это позволяет лениво загружать данные только когда они нужны</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обработка состояний промиса:</strong>
                             <br />
                             <small>
@@ -152,8 +147,8 @@ export default ConditionalUseExample;`;
             <div>
                 <h5>Правила использования хука use:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать use:</h6>
+                <div className='rules-container'>
+                    <h6 className='rules-title-positive'>✅ Когда использовать use:</h6>
                     <ul>
                         <li>
                             <strong>Чтение контекста условно</strong> - use(Context) можно использовать в условиях
@@ -172,7 +167,7 @@ export default ConditionalUseExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать use:</h6>
+                    <h6 className='rules-title-negative'>❌ Когда НЕ использовать use:</h6>
                     <ul>
                         <li>
                             <strong>Для обычных состояний</strong> - используйте useState
@@ -193,19 +188,12 @@ export default ConditionalUseExample;`;
                 </div>
 
                 <h5>Особенности хука use:</h5>
-                <div style={{ background: '#f3e5f5', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#7b1fa2' }}>🎯 Уникальные возможности use:</h6>
+                <div className='features-container'>
+                    <h6 className='features-title'>🎯 Уникальные возможности use:</h6>
                     <ul>
                         <li>
                             <strong>Условное выполнение:</strong>
-                            <pre
-                                style={{
-                                    background: '#e1bee7',
-                                    padding: '10px',
-                                    borderRadius: '4px',
-                                    fontSize: '12px',
-                                }}
-                            >
+                            <pre className='code-example'>
                                 {`// Это РАБОТАЕТ с use!
 if (shouldLoad) {
     const data = use(dataPromise);
@@ -214,14 +202,7 @@ if (shouldLoad) {
                         </li>
                         <li>
                             <strong>Использование в циклах:</strong>
-                            <pre
-                                style={{
-                                    background: '#e1bee7',
-                                    padding: '10px',
-                                    borderRadius: '4px',
-                                    fontSize: '12px',
-                                }}
-                            >
+                            <pre className='code-example'>
                                 {`// Это тоже РАБОТАЕТ!
 const items = ids.map(id => {
     const data = use(fetchItem(id));
@@ -231,14 +212,7 @@ const items = ids.map(id => {
                         </li>
                         <li>
                             <strong>Чтение контекста условно:</strong>
-                            <pre
-                                style={{
-                                    background: '#e1bee7',
-                                    padding: '10px',
-                                    borderRadius: '4px',
-                                    fontSize: '12px',
-                                }}
-                            >
+                            <pre className='code-example'>
                                 {`const ConditionalContext = () => {
     if (user.isAdmin) {
         const adminData = use(AdminContext);

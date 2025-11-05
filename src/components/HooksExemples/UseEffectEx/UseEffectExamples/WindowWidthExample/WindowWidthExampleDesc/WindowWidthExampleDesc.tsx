@@ -41,26 +41,17 @@ export default WindowWidthExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Отслеживание размера окна с useEffect'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useEffect для подписки на события:</h4>
 
-                <SyntaxHighlighter
-                    language='typescript'
-                    style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
-                >
+                <SyntaxHighlighter language='typescript' style={coy} className='code-highlighter'>
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useEffect для подписки на события:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация состояния:</strong>
                             <br />
                             <code>const [windowWidth, setWindowWidth] = useState{`<number>`}(window.innerWidth);</code>
@@ -73,7 +64,7 @@ export default WindowWidthExample;`;
                             <br />
                             <small>• Состояние будет обновляться при изменении размера окна</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание эффекта с подпиской:</strong>
                             <br />
                             <code>
@@ -90,7 +81,7 @@ export default WindowWidthExample;`;
                                 • Подписываемся на событие <code>resize</code> с помощью <code>addEventListener</code>
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Функция очистки (обязательная):</strong>
                             <br />
                             <code>
@@ -105,7 +96,7 @@ export default WindowWidthExample;`;
                             <br />
                             <small>• Предотвращаем утечки памяти и выполнение кода после удаления компонента</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обновление состояния при событиях:</strong>
                             <br />
                             <code>
@@ -143,18 +134,18 @@ export default WindowWidthExample;`;
                 </ul>
 
                 <h5>Паттерны для работы с событиями в useEffect:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>📝 Общая структура для подписки на события:</h6>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                <div className='event-patterns'>
+                    <h6 className='event-patterns-title'>📝 Общая структура для подписки на события:</h6>
+                    <pre className='code-pattern'>
                         {`useEffect(() => {
     // 1. Создаем функцию-обработчик
     const handler = () => {
         // Логика обработки события
     };
-    
+
     // 2. Подписываемся на событие
     element.addEventListener('eventName', handler);
-    
+
     // 3. Возвращаем функцию очистки
     return () => {
         element.removeEventListener('eventName', handler);
@@ -164,13 +155,13 @@ export default WindowWidthExample;`;
                 </div>
 
                 <h5>Другие примеры использования этого паттерна:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎯 Похожие сценарии:</h6>
+                <div className='event-examples'>
+                    <h6 className='event-examples-title'>🎯 Похожие сценарии:</h6>
                     <ul>
                         <li>
                             <strong>Отслеживание прокрутки:</strong>
                         </li>
-                        <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-example'>
                             {`useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -181,7 +172,7 @@ export default WindowWidthExample;`;
                         <li>
                             <strong>Отслеживание видимости страницы:</strong>
                         </li>
-                        <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-example'>
                             {`useEffect(() => {
     const handleVisibility = () => setIsVisible(!document.hidden);
     document.addEventListener('visibilitychange', handleVisibility);
@@ -192,7 +183,7 @@ export default WindowWidthExample;`;
                         <li>
                             <strong>Обработка нажатия клавиш:</strong>
                         </li>
-                        <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-example'>
                             {`useEffect(() => {
     const handleKeyPress = (e) => {
         if (e.key === 'Escape') handleClose();

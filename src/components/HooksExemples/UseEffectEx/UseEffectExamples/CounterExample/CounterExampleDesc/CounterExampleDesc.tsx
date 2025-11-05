@@ -51,15 +51,15 @@ const CounterExample: FC = () => {
             <button className='btn' onClick={() => setCount(count + 1)}>
                 Увеличить
             </button>
-            <button className='btn' onClick={clearLogs} style={{marginLeft: '10px'}}>
+            <button className='btn' onClick={clearLogs} className='clear-button'>
                 Очистить логи
             </button>
 
-            <div className='result-block'}>
+            <div className='result-block'>
                 <h4>Логи выполнения:</h4>
-                <div className='message info'}>
+                <div className='message info'>
                     {logs.map((log, index) => (
-                        <div key={index} style={{fontFamily: 'monospace', fontSize: '12px'}}>
+                        <div key={index} className='log-item'>
                             {log}
                         </div>
                     ))}
@@ -77,26 +77,17 @@ export default CounterExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Демонстрация работы useEffect'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useEffect:</h4>
 
-                <SyntaxHighlighter
-                    language='typescript'
-                    style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
-                >
+                <SyntaxHighlighter language='typescript' style={coy} className='code-highlighter'>
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useEffect:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Эффект при монтировании (componentDidMount):</strong>
                             <br />
                             <code>
@@ -109,7 +100,7 @@ export default CounterExample;`;
                             <br />
                             <small>• Функция очистки выполняется при размонтировании</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Эффект при изменении зависимостей (componentDidUpdate):</strong>
                             <br />
                             <code>
@@ -122,7 +113,7 @@ export default CounterExample;`;
                             <br />
                             <small>• Функция очистки выполняется перед следующим вызовом</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Эффект после каждого рендера:</strong>
                             <br />
                             <code>
@@ -135,7 +126,7 @@ export default CounterExample;`;
                             <br />
                             <small>• Может негативно влиять на производительность</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Функция очистки (cleanup):</strong>
                             <br />
                             <code>
@@ -155,8 +146,8 @@ export default CounterExample;`;
             <div>
                 <h5>Правила использования useEffect:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useEffect:</h6>
+                <div className='rules-container'>
+                    <h6 className='rules-title-positive'>✅ Когда использовать useEffect:</h6>
                     <ul>
                         <li>
                             <strong>Запросы к API</strong> - загрузка данных при монтировании
@@ -175,7 +166,7 @@ export default CounterExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useEffect:</h6>
+                    <h6 className='rules-title-negative'>❌ Когда НЕ использовать useEffect:</h6>
                     <ul>
                         <li>
                             <strong>Преобразование данных для рендера</strong> - используйте useMemo
@@ -197,13 +188,13 @@ export default CounterExample;`;
                 </div>
 
                 <h5>Паттерны использования useEffect:</h5>
-                <div style={{ background: '#f3e5f5', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#7b1fa2' }}>🔧 Распространенные сценарии:</h6>
+                <div className='patterns-container'>
+                    <h6 className='patterns-title'>🔧 Распространенные сценарии:</h6>
                     <ul>
                         <li>
                             <strong>Загрузка данных:</strong>
                         </li>
-                        <pre style={{ background: '#e1bee7', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-pattern'>
                             {`useEffect(() => {
     fetch('/api/data')
         .then(response => response.json())
@@ -214,7 +205,7 @@ export default CounterExample;`;
                         <li>
                             <strong>Подписка и отписка:</strong>
                         </li>
-                        <pre style={{ background: '#e1bee7', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-pattern'>
                             {`useEffect(() => {
     const subscription = api.subscribe(data => setData(data));
     return () => subscription.unsubscribe();
@@ -224,7 +215,7 @@ export default CounterExample;`;
                         <li>
                             <strong>Таймеры:</strong>
                         </li>
-                        <pre style={{ background: '#e1bee7', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className='code-pattern'>
                             {`useEffect(() => {
     const timer = setInterval(() => setCount(c => c + 1), 1000);
     return () => clearInterval(timer);

@@ -48,26 +48,21 @@ export default ArrayExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 3: Работа с массивами'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура работы с массивами в useState:</h4>
 
                 <SyntaxHighlighter
                     language='javascript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с массивами:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация массива:</strong>{' '}
                             <code>useState{`<string[]>`}(['Яблоко', 'Банан', 'Апельсин'])</code>
                             <br />
@@ -77,7 +72,7 @@ export default ArrayExample;`;
                             <br />
                             <small>• Начальное значение - массив с тремя фруктами</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Добавление элемента:</strong>{' '}
                             <code>setItems((prevItems) ={'>'} [...prevItems, newItem])</code>
                             <br />
@@ -87,7 +82,7 @@ export default ArrayExample;`;
                             <br />
                             <small>• Добавляем новый элемент в конец массива</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Удаление элемента:</strong> <code>prevItems.filter((_, i) ={'>'} i !== index)</code>
                             <br />
                             <small>
@@ -96,7 +91,7 @@ export default ArrayExample;`;
                             <br />
                             <small>• Удаляем элемент по индексу</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Отображение массива:</strong> <code>items.map((item, index) ={'>'} (...))</code>
                             <br />
                             <small>

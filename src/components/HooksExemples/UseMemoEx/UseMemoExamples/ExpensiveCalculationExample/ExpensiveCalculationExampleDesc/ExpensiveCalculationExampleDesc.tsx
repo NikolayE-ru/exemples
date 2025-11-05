@@ -77,26 +77,21 @@ export default ExpensiveCalculationExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Оптимизация вычислений с useMemo'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useMemo для оптимизации вычислений:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useMemo для дорогих вычислений:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание "дорогой" функции:</strong>
                             <br />
                             <code>
@@ -111,7 +106,7 @@ export default ExpensiveCalculationExample;`;
                                 • В реальных приложениях это могут быть сложные алгоритмы, преобразования данных
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Мемоизация с useMemo:</strong>
                             <br />
                             <code>
@@ -126,7 +121,7 @@ export default ExpensiveCalculationExample;`;
                             <br />
                             <small>• Измеряем время выполнения для демонстрации оптимизации</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Массив зависимостей:</strong>
                             <br />
                             <code>[count] // Пересчет только при изменении count</code>
@@ -137,7 +132,7 @@ export default ExpensiveCalculationExample;`;
                             <br />
                             <small>• Кэшированное значение используется до изменения зависимостей</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Измерение производительности:</strong>
                             <br />
                             <code>const startTime = performance.now();</code>
@@ -157,8 +152,8 @@ export default ExpensiveCalculationExample;`;
             <div>
                 <h5>Правила использования useMemo:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useMemo:</h6>
+                <div className='rules-container'>
+                    <h6 className='rules-title-positive'>✅ Когда использовать useMemo:</h6>
                     <ul>
                         <li>
                             <strong>Дорогие вычисления</strong> - сложные математические операции, обработка больших
@@ -181,7 +176,7 @@ export default ExpensiveCalculationExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useMemo:</h6>
+                    <h6 className='rules-title-negative'>❌ Когда НЕ использовать useMemo:</h6>
                     <ul>
                         <li>
                             <strong>Простые вычисления</strong> - операции, которые выполняются быстро {`(<0.1ms)`}
@@ -202,72 +197,66 @@ export default ExpensiveCalculationExample;`;
                 </div>
 
                 <h5>Как работает useMemo в этом примере:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🔄 Процесс выполнения:</h6>
+                <div className='process-container'>
+                    <h6 className='process-title'>🔄 Процесс выполнения:</h6>
 
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <table className='process-table'>
                         <thead>
-                            <tr style={{ backgroundColor: '#c8e6c9' }}>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Действие
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    useMemo поведение
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Производительность
-                                </th>
+                            <tr>
+                                <th>Действие</th>
+                                <th>useMemo поведение</th>
+                                <th>Производительность</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Первое нажатие кнопки</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>Первое нажатие кнопки</td>
+                                <td>
                                     Выполняется вычисление, результат кэшируется
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Медленно (измеряемое время)
                                 </td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Повторное нажатие с тем же count
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Используется кэшированное значение
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Мгновенно</td>
+                                <td>Мгновенно</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Изменение count</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>Изменение count</td>
+                                <td>
                                     Выполняется новое вычисление
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Медленно (только при изменении)
                                 </td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Другие изменения состояния
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     Используется кэшированное значение
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Мгновенно</td>
+                                <td>Мгновенно</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h5>Практические примеры использования useMemo:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎯 Реальные сценарии применения:</h6>
+                <div className='examples-container'>
+                    <h6 className='examples-title'>🎯 Реальные сценарии применения:</h6>
 
                     <p>
                         <strong>1. Фильтрация и сортировка больших списков:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const filteredUsers = useMemo(() => {
     return users
         .filter(user => user.active)
@@ -278,7 +267,7 @@ export default ExpensiveCalculationExample;`;
                     <p>
                         <strong>2. Сложные математические вычисления:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const chartData = useMemo(() => {
     return rawData.map(item => ({
         x: item.timestamp,
@@ -290,7 +279,7 @@ export default ExpensiveCalculationExample;`;
                     <p>
                         <strong>3. Стабильные ссылки для memo-компонентов:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const chartConfig = useMemo(() => ({
     type: 'line',
     animation: { duration: 1000 },

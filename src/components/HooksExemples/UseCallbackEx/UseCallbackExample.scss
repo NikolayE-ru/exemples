@@ -112,3 +112,76 @@
 .todo-list {
     margin-top: 15px;
 }
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.button-wrapper {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.render-time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.key-points {
+    margin-top: 20px;
+}
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.rules-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rules-title {
+    margin-top: 0;
+    
+    &.positive {
+        color: #1565c0;
+    }
+    
+    &.negative {
+        color: #c62828;
+    }
+}

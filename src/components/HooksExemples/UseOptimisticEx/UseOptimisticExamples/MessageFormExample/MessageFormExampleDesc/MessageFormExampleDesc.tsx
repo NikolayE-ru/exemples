@@ -70,7 +70,7 @@ const MessageFormExample: FC = () => {
         // Используем useTransition для неблокирующих обновлений
         startTransition(async () => {
             await new Promise((resolve) => setTimeout(resolve, 1500));
-            
+
             // Устанавливаем ошибку (не обновляем реальные сообщения)
             setError(\`Ошибка: Не удалось отправить сообщение "\${newMessage}"\`);
         });
@@ -136,26 +136,21 @@ export default MessageFormExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Чат с оптимистичными обновлениями'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useOptimistic с useTransition:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useOptimistic и useTransition:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация состояний:</strong>
                             <br />
                             <code>const [messages, setMessages] = useState{`<Message[]>`}([...]);</code>
@@ -168,7 +163,7 @@ export default MessageFormExample;`;
                                 • <code>useTransition</code> для неблокирующих обновлений
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Настройка useOptimistic:</strong>
                             <br />
                             <code>
@@ -185,7 +180,7 @@ export default MessageFormExample;`;
                                 • <code>sending: true</code> - сообщение отправляется
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Успешная отправка:</strong>
                             <br />
                             <code>addOptimisticMessage({'{ text: newMessage }'}); // Сразу показываем</code>
@@ -194,7 +189,7 @@ export default MessageFormExample;`;
                             <br />
                             <small>• После успешного ответа обновляем реальное состояние</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Обработка ошибок с useTransition:</strong>
                             <br />
                             <code>
@@ -207,7 +202,7 @@ export default MessageFormExample;`;
                             <br />
                             <small>• Реальное состояние не обновляется</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Визуальная обратная связь:</strong>
                             <br />
                             <code>{`className={\`message-item \${message.sending ? 'sending' : ''}\`}`}</code>

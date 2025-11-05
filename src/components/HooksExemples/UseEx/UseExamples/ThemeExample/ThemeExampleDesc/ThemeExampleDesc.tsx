@@ -39,7 +39,7 @@ const ThemeExample: FC = () => {
             <button className='btn' onClick={toggleTheme}>
                 Переключить на {theme === 'light' ? 'темную' : 'светлую'} тему
             </button>
-            
+
             {/* Шаг 3: Оборачивание в Provider для передачи текущего значения */}
             <ThemeContext.Provider value={theme}>
                 <ThemeDisplay />
@@ -52,26 +52,21 @@ export default ThemeExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Чтение контекста через use'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения use для чтения контекста:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с use для контекста:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание типизированного контекста:</strong>
                             <br />
                             <code>const ThemeContext = createContext{`<'light' | 'dark'>`}('light');</code>
@@ -82,7 +77,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Контекст создается так же, как и для useContext</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Чтение контекста через use:</strong>
                             <br />
                             <code>const theme = use(ThemeContext);</code>
@@ -95,7 +90,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Автоматически подписывается на изменения контекста</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Предоставление контекста через Provider:</strong>
                             <br />
                             <code>{`<ThemeContext.Provider value={theme}>`}</code>
@@ -108,7 +103,7 @@ export default ThemeExample;`;
                             <br />
                             <small>• Все потребители автоматически получают обновления</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Использование значения в компоненте:</strong>
                             <br />
                             <code>{`<div className={\`theme-\${theme}\`}>`}</code>
@@ -125,73 +120,55 @@ export default ThemeExample;`;
 
             <div>
                 <h5>Сравнение use и useContext:</h5>
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>🔄 use vs useContext:</h6>
+                <div className='comparison-table-container'>
+                    <h6 className='comparison-title'>🔄 use vs useContext:</h6>
 
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <table className='comparison-table'>
                         <thead>
-                            <tr style={{ backgroundColor: '#bbdefb' }}>
-                                <th style={{ padding: '8px', border: '1px solid #90caf9', textAlign: 'left' }}>
-                                    Аспект
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #90caf9', textAlign: 'left' }}>
-                                    useContext
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #90caf9', textAlign: 'left' }}>use</th>
+                            <tr className='table-header'>
+                                <th>Аспект</th>
+                                <th>useContext</th>
+                                <th>use</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <strong>Синтаксис</strong>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <code>useContext(Context)</code>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <code>use(Context)</code>
-                                </td>
+                                <td><strong>Синтаксис</strong></td>
+                                <td><code>useContext(Context)</code></td>
+                                <td><code>use(Context)</code></td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <strong>Условное использование</strong>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>❌ Нельзя в условиях</td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>✅ Можно в условиях</td>
+                                <td><strong>Условное использование</strong></td>
+                                <td>❌ Нельзя в условиях</td>
+                                <td>✅ Можно в условиях</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <strong>Циклы</strong>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>❌ Нельзя в циклах</td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>✅ Можно в циклах</td>
+                                <td><strong>Циклы</strong></td>
+                                <td>❌ Нельзя в циклах</td>
+                                <td>✅ Можно в циклах</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <strong>React версия</strong>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>✅ 16.8+</td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>✅ 19+</td>
+                                <td><strong>React версия</strong></td>
+                                <td>✅ 16.8+</td>
+                                <td>✅ 19+</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>
-                                    <strong>Функциональность</strong>
-                                </td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>Только контекст</td>
-                                <td style={{ padding: '8px', border: '1px solid #e3f2fd' }}>Контекст + промисы</td>
+                                <td><strong>Функциональность</strong></td>
+                                <td>Только контекст</td>
+                                <td>Контекст + промисы</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h5>Преимущества use для контекста:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🎯 Ключевые преимущества:</h6>
+                <div className='advantages-container'>
+                    <h6 className='advantages-title'>🎯 Ключевые преимущества:</h6>
 
                     <p>
                         <strong>1. Условное чтение контекста:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const ConditionalComponent = () => {
     if (user.isAdmin) {
         const adminSettings = use(AdminContext);
@@ -205,7 +182,7 @@ export default ThemeExample;`;
                     <p>
                         <strong>2. Использование в циклах:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const UserList = ({ userIds }) => {
     return userIds.map(id => {
         const user = use(UserContext); // Можно в цикле!
@@ -217,7 +194,7 @@ export default ThemeExample;`;
                     <p>
                         <strong>3. Единый API для разных ресурсов:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`// Один хук для разных целей
 const MyComponent = () => {
     const theme = use(ThemeContext);     // Контекст

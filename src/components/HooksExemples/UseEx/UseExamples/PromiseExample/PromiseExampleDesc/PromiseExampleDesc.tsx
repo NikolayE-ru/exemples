@@ -55,7 +55,7 @@ const PromiseExample: FC = () => {
             <button className='btn' onClick={loadData}>
                 Загрузить данные
             </button>
-            
+
             {/* Шаг 3: Оборачивание в Suspense для обработки состояний загрузки */}
             {dataPromise && (
                 <Suspense fallback={<div className='message info'>Загрузка данных...</div>}>
@@ -70,26 +70,21 @@ export default PromiseExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Работа с промисами через use'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения use для работы с промисами:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с use для промисов:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание компонента с use для промиса:</strong>
                             <br />
                             <code>const data = use(promise);</code>
@@ -100,7 +95,7 @@ export default PromiseExample;`;
                             <br />
                             <small>• При ошибке промиса будет выброшено исключение</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Управление состоянием промиса:</strong>
                             <br />
                             <code>
@@ -113,7 +108,7 @@ export default PromiseExample;`;
                             <br />
                             <small>• При каждом клике создается новый промис</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание промиса с задержкой:</strong>
                             <br />
                             <code>
@@ -127,7 +122,7 @@ export default PromiseExample;`;
                             <br />
                             <small>• Каждый промис имеет уникальные данные (timestamp)</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Оборачивание в Suspense:</strong>
                             <br />
                             <code>{`<Suspense fallback={<div>Загрузка данных...</div>}>`}</code>
@@ -146,8 +141,8 @@ export default PromiseExample;`;
 
             <div>
                 <h5>Как работает use с промисами:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🔄 Процесс выполнения:</h6>
+                <div className='process-container'>
+                    <h6 className='process-title'>🔄 Процесс выполнения:</h6>
                     <ol>
                         <li>
                             <strong>Клик по кнопке</strong> → создается новый промис
@@ -174,13 +169,13 @@ export default PromiseExample;`;
                 </div>
 
                 <h5>Преимущества use перед традиционными подходами:</h5>
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>🚀 Сравнение с useEffect:</h6>
+                <div className='comparison-container'>
+                    <h6 className='comparison-title'>🚀 Сравнение с useEffect:</h6>
 
                     <p>
                         <strong>Традиционный подход (useEffect):</strong>
                     </p>
-                    <pre style={{ background: '#bbdefb', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-traditional'>
                         {`const [data, setData] = useState(null);
 const [loading, setLoading] = useState(false);
 
@@ -198,7 +193,7 @@ return loading ? <Spinner /> : <DataDisplay data={data} />;`}
                     <p>
                         <strong>Современный подход (use + Suspense):</strong>
                     </p>
-                    <pre style={{ background: '#bbdefb', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-modern'>
                         {`const data = use(fetchData());
 
 return <DataDisplay data={data} />;

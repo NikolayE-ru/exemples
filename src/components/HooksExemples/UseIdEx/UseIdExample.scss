@@ -118,14 +118,16 @@
     margin-bottom: 15px;
 }
 
-.manual-id, .auto-id {
+.manual-id,
+.auto-id {
     flex: 1;
     padding: 15px;
     border-radius: 6px;
     background-color: #f1f1f1;
 }
 
-.radio-option, .checkbox-option {
+.radio-option,
+.checkbox-option {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -140,4 +142,125 @@ fieldset {
 
 legend {
     font-weight: 500;
+}
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.rules-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rules-title-positive {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.rules-title-negative {
+    color: #c62828;
+}
+
+.comparison-table-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.comparison-table-title {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        tr {
+            background-color: #c8e6c9;
+        }
+
+        th {
+            padding: 8px;
+            border: 1px solid #a5d6a7;
+            text-align: left;
+        }
+    }
+
+    tbody {
+        td {
+            padding: 8px;
+            border: 1px solid #e8f5e8;
+        }
+    }
+}
+
+.examples-container {
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.examples-title {
+    margin-top: 0;
+    color: #ef6c00;
+}
+
+.code-example {
+    background: #ffe0b2;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.advantages-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.advantages-title {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.patterns-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.patterns-title {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.code-pattern {
+    background: #c8e6c9;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
 }

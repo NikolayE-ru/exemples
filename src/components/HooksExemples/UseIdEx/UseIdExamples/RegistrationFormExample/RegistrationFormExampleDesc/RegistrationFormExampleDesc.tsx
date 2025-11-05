@@ -12,10 +12,10 @@ interface Option {
 }
 
 // Компонент поля ввода с автоматически сгенерированным ID
-const InputField: FC<{ label: string; type?: string; placeholder?: string }> = ({ 
-    label, 
-    type = 'text', 
-    placeholder 
+const InputField: FC<{ label: string; type?: string; placeholder?: string }> = ({
+    label,
+    type = 'text',
+    placeholder
 }) => {
     // Шаг 1: Генерация уникального ID для простого поля ввода
     const id = useId();
@@ -144,26 +144,21 @@ export default RegistrationFormExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Использование useId в форме регистрации'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useId в сложной форме:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useId в компонентах формы:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Простое поле ввода (InputField):</strong>
                             <br />
                             <code>const id = useId();</code>
@@ -177,7 +172,7 @@ export default RegistrationFormExample;`;
                             <br />
                             <small>• Гарантирует доступность и правильную работу с screen readers</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Группа радиокнопок (RadioGroup):</strong>
                             <br />
                             <code>const groupId = useId();</code>
@@ -190,7 +185,7 @@ export default RegistrationFormExample;`;
                             <br />
                             <small>• Сохраняет семантическую связь между элементами группы</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Группа чекбоксов (CheckboxGroup):</strong>
                             <br />
                             <code>const groupId = useId();</code>
@@ -203,7 +198,7 @@ export default RegistrationFormExample;`;
                             <br />
                             <small>• Позволяет независимое управление каждым чекбоксом</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Композиция формы:</strong>
                             <br />
                             <code>{`<InputField label='Имя' />`}</code>
@@ -222,8 +217,8 @@ export default RegistrationFormExample;`;
 
             <div>
                 <h5>Преимущества использования useId в переиспользуемых компонентах:</h5>
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>🚀 Ключевые преимущества:</h6>
+                <div className='advantages-container'>
+                    <h6 className='advantages-title'>🚀 Ключевые преимущества:</h6>
 
                     <ul>
                         <li>
@@ -250,13 +245,13 @@ export default RegistrationFormExample;`;
                 </div>
 
                 <h5>Паттерны генерации ID для разных сценариев:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🎯 Различные подходы к использованию useId:</h6>
+                <div className='patterns-container'>
+                    <h6 className='patterns-title'>🎯 Различные подходы к использованию useId:</h6>
 
                     <p>
                         <strong>1. Простые поля (один useId на компонент):</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-pattern'>
                         {`const TextInput = ({ label }) => {
     const id = useId();
     return (
@@ -271,14 +266,14 @@ export default RegistrationFormExample;`;
                     <p>
                         <strong>2. Группы элементов (useId + суффиксы):</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-pattern'>
                         {`const RadioGroup = ({ options }) => {
     const baseId = useId();
     return options.map((option, index) => (
         <div key={option.value}>
-            <input 
-                id={\`\${baseId}-\${index}\`} 
-                type="radio" 
+            <input
+                id={\`\${baseId}-\${index}\`}
+                type="radio"
             />
             <label htmlFor={\`\${baseId}-\${index}\`}>
                 {option.label}
@@ -291,15 +286,15 @@ export default RegistrationFormExample;`;
                     <p>
                         <strong>3. Сложные компоненты (несколько useId):</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-pattern'>
                         {`const ComplexField = ({ label, description }) => {
     const inputId = useId();
     const descriptionId = useId();
     return (
         <div>
             <label htmlFor={inputId}>{label}</label>
-            <input 
-                id={inputId} 
+            <input
+                id={inputId}
                 aria-describedby={descriptionId}
             />
             <span id={descriptionId}>{description}</span>

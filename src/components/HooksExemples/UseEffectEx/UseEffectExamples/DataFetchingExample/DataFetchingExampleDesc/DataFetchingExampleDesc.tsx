@@ -26,9 +26,9 @@ const DataFetchingExample: FC = () => {
         setTimeout(() => {
             try {
                 // В реальном приложении здесь был бы fetch/axios запрос
-                const mockData: DataItem = { 
-                    id: Date.now(), 
-                    title: \`Загруженные данные #\${Date.now()}\` 
+                const mockData: DataItem = {
+                    id: Date.now(),
+                    title: \`Загруженные данные #\${Date.now()}\`
                 };
                 setData(mockData);
                 setLoading(false);
@@ -70,26 +70,21 @@ export default DataFetchingExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 3: Загрузка данных с useEffect'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useEffect для загрузки данных:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useEffect для загрузки данных:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация состояний:</strong>
                             <br />
                             <code>const [data, setData] = useState{`<DataItem | null>`}(null);</code>
@@ -110,7 +105,7 @@ export default DataFetchingExample;`;
                                 • <code>error</code> - для хранения сообщений об ошибках
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание функции загрузки данных:</strong>
                             <br />
                             <code>
@@ -129,7 +124,7 @@ export default DataFetchingExample;`;
                                 • Обрабатываем успех и ошибки в блоке <code>try/catch</code>
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Использование useEffect для автоматической загрузки:</strong>
                             <br />
                             <code>
@@ -144,7 +139,7 @@ export default DataFetchingExample;`;
                                 • Эквивалент <code>componentDidMount</code> в классовых компонентах
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Условный рендеринг состояний:</strong>
                             <br />
                             <code>{`{loading && <p>Загрузка...</p>}`}</code>
@@ -185,16 +180,16 @@ export default DataFetchingExample;`;
                 </ul>
 
                 <h5>Улучшенные паттерны для загрузки данных:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🚀 Продвинутые подходы:</h6>
+                <div className='advanced-patterns'>
+                    <h6 className='advanced-title'>🚀 Продвинутые подходы:</h6>
 
                     <p>
                         <strong>1. Отмена запросов при размонтировании:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-pattern'>
                         {`useEffect(() => {
     let cancelled = false;
-    
+
     const fetchData = async () => {
         setLoading(true);
         try {
@@ -209,9 +204,9 @@ export default DataFetchingExample;`;
             if (!cancelled) setLoading(false);
         }
     };
-    
+
     fetchData();
-    
+
     return () => { cancelled = true; };
 }, []);`}
                     </pre>
@@ -219,7 +214,7 @@ export default DataFetchingExample;`;
                     <p>
                         <strong>2. Загрузка с зависимостями:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-pattern'>
                         {`useEffect(() => {
     fetchData(userId);
 }, [userId]); // Перезагружает данные при изменении userId`}
@@ -227,8 +222,8 @@ export default DataFetchingExample;`;
                 </div>
 
                 <h5>Типичные ошибки и их решения:</h5>
-                <div style={{ background: '#ffebee', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#c62828' }}>⚠️ Частые проблемы:</h6>
+                <div className='errors-container'>
+                    <h6 className='errors-title'>⚠️ Частые проблемы:</h6>
                     <ul>
                         <li>
                             <strong>Утечка памяти:</strong> запрос выполняется после размонтирования компонента

@@ -51,7 +51,7 @@ const TodoListExample: FC = () => {
     // Шаг 3: Мемоизированная функция для переключения состояния
     const toggleTodo = useCallback((id: number) => {
         setTodos((prevTodos) =>
-            prevTodos.map((todo) => 
+            prevTodos.map((todo) =>
                 todo.id === id ? { ...todo, completed: !todo.completed } : todo
             ),
         );
@@ -76,11 +76,11 @@ const TodoListExample: FC = () => {
 
             <div className='todo-list'>
                 {todos.map((todo) => (
-                    <ListItem 
-                        key={todo.id} 
-                        item={todo} 
-                        onRemove={removeTodo} 
-                        onToggle={toggleTodo} 
+                    <ListItem
+                        key={todo.id}
+                        item={todo}
+                        onRemove={removeTodo}
+                        onToggle={toggleTodo}
                     />
                 ))}
             </div>
@@ -96,26 +96,21 @@ export default TodoListExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Список задач с useCallback'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className="description-container">
                 <h4>Пошаговая процедура подключения useCallback:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className="code-highlighter"
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className="steps-container">
                     <h5>Шаги работы с useCallback в списке задач:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Мемоизация компонента ListItem:</strong>
                             <br />
                             <code>
@@ -126,7 +121,7 @@ export default TodoListExample;`;
                             <br />
                             <small>• Без useCallback функции создавались бы заново при каждом рендере</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Функция addTodo с зависимостью:</strong>
                             <br />
                             <code>
@@ -137,7 +132,7 @@ export default TodoListExample;`;
                             <br />
                             <small>• Использует текущее значение inputValue внутри функции</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Функции removeTodo и toggleTodo без зависимостей:</strong>
                             <br />
                             <code>
@@ -150,7 +145,7 @@ export default TodoListExample;`;
                             <br />
                             <small>• Не зависят от внешних переменных</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Передача мемоизированных функций в ListItem:</strong>
                             <br />
                             <code>{`<ListItem onRemove={removeTodo} onToggle={toggleTodo} />`}</code>
@@ -168,8 +163,8 @@ export default TodoListExample;`;
             <div>
                 <h5>Правила использования useCallback:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useCallback:</h6>
+                <div className="rules-container">
+                    <h6 className="rules-title positive">✅ Когда использовать useCallback:</h6>
                     <ul>
                         <li>
                             <strong>Функции передаются в memo-компоненты</strong> - как в этом примере
@@ -187,7 +182,7 @@ export default TodoListExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useCallback:</h6>
+                    <h6 className="rules-title negative">❌ Когда НЕ использовать useCallback:</h6>
                     <ul>
                         <li>
                             <strong>Локальные функции</strong> - не передаются в дочерние компоненты

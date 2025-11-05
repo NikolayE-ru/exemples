@@ -17,7 +17,7 @@ const ProductList: FC<{ products: Product[]; filter: string }> = ({ products, fi
     // Шаг 1: Мемоизация отфильтрованного списка товаров
     const filteredProducts = useMemo(() => {
         console.log('Фильтрация товаров...');
-        return products.filter((product) => 
+        return products.filter((product) =>
             product.name.toLowerCase().includes(filter.toLowerCase())
         );
     }, [products, filter]); // Зависимости: products и filter
@@ -84,26 +84,21 @@ export default ProductFilterExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Фильтрация списка с useMemo'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useMemo для фильтрации данных:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useMemo для фильтрации и вычислений:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Мемоизация фильтрации товаров:</strong>
                             <br />
                             <code>
@@ -121,7 +116,7 @@ export default ProductFilterExample;`;
                             <br />
                             <small>• Предотвращает повторную фильтрацию при каждом рендере</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Цепочка мемоизированных вычислений:</strong>
                             <br />
                             <code>
@@ -138,7 +133,7 @@ export default ProductFilterExample;`;
                                 • Выполняется только при изменении <code>filteredProducts</code>
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Оптимизация рендеринга списка:</strong>
                             <br />
                             <code>{`{filteredProducts.map((product) => (...))}`}</code>
@@ -151,7 +146,7 @@ export default ProductFilterExample;`;
                             <br />
                             <small>• Улучшает производительность при больших списках</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Управление состоянием фильтра:</strong>
                             <br />
                             <code>const [filter, setFilter] = useState{`<string>`}('');</code>
@@ -168,59 +163,27 @@ export default ProductFilterExample;`;
 
             <div>
                 <h5>Архитектура цепочки вычислений с useMemo:</h5>
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>🔄 Поток данных и вычислений:</h6>
+                <div className='flow-diagram-container'>
+                    <h6 className='flow-diagram-title'>🔄 Поток данных и вычислений:</h6>
 
-                    <div style={{ textAlign: 'center', margin: '15px 0' }}>
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                padding: '10px 20px',
-                                backgroundColor: '#bbdefb',
-                                borderRadius: '5px',
-                                margin: '5px',
-                            }}
-                        >
+                    <div className='flow-diagram'>
+                        <div className='flow-box'>
                             <strong>products + filter</strong>
                         </div>
-                        <div style={{ display: 'inline-block', margin: '0 10px' }}>→</div>
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                padding: '10px 20px',
-                                backgroundColor: '#90caf9',
-                                borderRadius: '5px',
-                                margin: '5px',
-                            }}
-                        >
+                        <div className='flow-arrow'>→</div>
+                        <div className='flow-box'>
                             <strong>useMemo #1</strong>
                             <br />
                             <small>filteredProducts</small>
                         </div>
-                        <div style={{ display: 'inline-block', margin: '0 10px' }}>→</div>
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                padding: '10px 20px',
-                                backgroundColor: '#64b5f6',
-                                borderRadius: '5px',
-                                margin: '5px',
-                            }}
-                        >
+                        <div className='flow-arrow'>→</div>
+                        <div className='flow-box'>
                             <strong>useMemo #2</strong>
                             <br />
                             <small>totalPrice</small>
                         </div>
-                        <div style={{ display: 'inline-block', margin: '0 10px' }}>→</div>
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                padding: '10px 20px',
-                                backgroundColor: '#42a5f5',
-                                borderRadius: '5px',
-                                margin: '5px',
-                            }}
-                        >
+                        <div className='flow-arrow'>→</div>
+                        <div className='flow-box'>
                             <strong>UI</strong>
                         </div>
                     </div>
@@ -237,15 +200,15 @@ export default ProductFilterExample;`;
                 </div>
 
                 <h5>Паттерны использования useMemo для работы с данными:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>🎯 Распространенные сценарии:</h6>
+                <div className='patterns-container'>
+                    <h6 className='patterns-title'>🎯 Распространенные сценарии:</h6>
 
                     <p>
                         <strong>1. Фильтрация с несколькими критериями:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const filteredData = useMemo(() => {
-    return data.filter(item => 
+    return data.filter(item =>
         item.name.includes(nameFilter) &&
         item.category === categoryFilter &&
         item.price >= minPrice &&
@@ -257,7 +220,7 @@ export default ProductFilterExample;`;
                     <p>
                         <strong>2. Сортировка с пользовательскими правилами:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const sortedProducts = useMemo(() => {
     return [...products].sort((a, b) => {
         if (sortBy === 'name') return a.name.localeCompare(b.name);
@@ -270,7 +233,7 @@ export default ProductFilterExample;`;
                     <p>
                         <strong>3. Агрегация и статистика:</strong>
                     </p>
-                    <pre style={{ background: '#c8e6c9', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const statistics = useMemo(() => {
     const total = data.reduce((sum, item) => sum + item.value, 0);
     const average = total / data.length;
@@ -281,13 +244,13 @@ export default ProductFilterExample;`;
                 </div>
 
                 <h5>Производительность и отладка:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🔧 Инструменты для отладки useMemo:</h6>
+                <div className='debug-container'>
+                    <h6 className='debug-title'>🔧 Инструменты для отладки useMemo:</h6>
 
                     <p>
                         <strong>1. Использование console.log для отслеживания вычислений:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const result = useMemo(() => {
     console.log('Выполняется вычисление...');
     // сложная логика
@@ -307,7 +270,7 @@ export default ProductFilterExample;`;
                     <p>
                         <strong>3. Измерение времени выполнения:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const result = useMemo(() => {
     const start = performance.now();
     // вычисления

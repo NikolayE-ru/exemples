@@ -131,3 +131,140 @@ ul {
     border-radius: 5px;
     margin-bottom: 15px;
 }
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.rules-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rules-title-positive {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.rules-title-negative {
+    color: #c62828;
+}
+
+.process-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.process-title {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        background-color: #c8e6c9;
+        padding: 8px;
+        border: 1px solid #a5d6a7;
+        text-align: left;
+    }
+
+    td {
+        padding: 8px;
+        border: 1px solid #e8f5e8;
+    }
+}
+
+.examples-container {
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.examples-title {
+    margin-top: 0;
+    color: #ef6c00;
+}
+
+.code-example {
+    background: #ffe0b2;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.flow-diagram-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.flow-diagram-title {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.flow-diagram {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.flow-box {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #90caf9;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.flow-arrow {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.patterns-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.patterns-title {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.debug-container {
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.debug-title {
+    margin-top: 0;
+    color: #ef6c00;
+}

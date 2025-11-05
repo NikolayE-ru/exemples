@@ -107,3 +107,79 @@
     border-radius: 4px;
     margin-top: 10px;
 }
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.rules-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rules-title {
+    margin-top: 0;
+    
+    &.positive {
+        color: #1565c0;
+    }
+    
+    &.negative {
+        color: #c62828;
+    }
+}
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.patterns-container {
+    background: #f3e5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.patterns-title {
+    margin-top: 0;
+    color: #7b1fa2;
+}
+
+.code-pattern {
+    background: #e1bee7;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}

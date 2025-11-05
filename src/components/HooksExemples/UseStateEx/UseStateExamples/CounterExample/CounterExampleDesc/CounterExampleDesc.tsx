@@ -35,29 +35,24 @@ export default CounterExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Счетчик'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useState:</h4>
-                
-                <SyntaxHighlighter 
-                    language="javascript" 
+
+                <SyntaxHighlighter
+                    language="javascript"
                     style={coy}
-                    customStyle={{ 
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa'
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги подключения:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Импорт хука:</strong> <code>import {'{ useState }'} from 'react'</code>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация состояния:</strong> <code>const [count, setCount] = useState(0)</code>
                             <br/>
                             <small>• count - текущее значение</small>
@@ -66,10 +61,10 @@ export default CounterExample;`;
                             <br/>
                             <small>• 0 - начальное значение</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Функции обновления:</strong> Создаем increment и decrement для изменения состояния
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Использование в JSX:</strong> Отображаем count и привязываем функции к кнопкам
                         </li>
                     </ol>

@@ -55,26 +55,21 @@ export default BooleanExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 4: Работа с булевыми значениями'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура работы с булевыми значениями в useState:</h4>
 
                 <SyntaxHighlighter
                     language='javascript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с булевыми значениями:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Инициализация булевых состояний:</strong>
                             <br />
                             <code>const [isVisible, setIsVisible] = useState{`<boolean>`}(true);</code>
@@ -87,7 +82,7 @@ export default BooleanExample;`;
                             <br />
                             <small>• Начальные значения: true и false</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Функции переключения:</strong>
                             <br />
                             <code>setIsVisible((prevState) ={'>'} !prevState);</code>
@@ -98,7 +93,7 @@ export default BooleanExample;`;
                             <br />
                             <small>• Функциональная форма гарантирует актуальное состояние</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Условный рендеринг:</strong>
                             <br />
                             <code>{`{isVisible && (<div>...</div>)}`}</code>
@@ -111,7 +106,7 @@ export default BooleanExample;`;
                                 • Используем логический оператор <code>&&</code>
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Динамический контент:</strong>
                             <br />
                             <code>{`{isAccepted ? 'Отменить' : 'Принять'} условия`}</code>

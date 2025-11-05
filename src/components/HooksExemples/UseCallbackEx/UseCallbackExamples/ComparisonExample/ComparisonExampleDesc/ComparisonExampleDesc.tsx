@@ -16,11 +16,11 @@ const Button = memo(({ onClick, label }: ButtonProps) => {
     const renderTime = new Date().toLocaleTimeString();
 
     return (
-        <div style={{ margin: '10px 0', padding: '10px', border: '1px solid #ccc' }}>
+        <div className="button-wrapper">
             <button className='btn' onClick={onClick}>
                 {label}
             </button>
-            <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
+            <div className="render-time">
                 Последняя перерисовка: {renderTime}
             </div>
         </div>
@@ -78,26 +78,21 @@ export default ComparisonExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Оптимизация с useCallback и memo'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className="description-container">
                 <h4>Пошаговая процедура подключения useCallback:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className="code-highlighter"
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className="steps-container">
                     <h5>Шаги работы с useCallback и memo:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Создание мемоизированного компонента:</strong>
                             <br />
                             <code>
@@ -110,7 +105,7 @@ export default ComparisonExample;`;
                             <br />
                             <small>• Компонент перерисовывается только при изменении пропсов</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Функция БЕЗ useCallback (проблема):</strong>
                             <br />
                             <code>
@@ -125,7 +120,7 @@ export default ComparisonExample;`;
                             <br />
                             <small>• Лишние перерисовки дочернего компонента</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Функция С useCallback (решение):</strong>
                             <br />
                             <code>
@@ -140,7 +135,7 @@ export default ComparisonExample;`;
                                 • <code>memo</code> видит, что пропс не изменился
                             </small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Массив зависимостей:</strong>
                             <br />
                             <code>[count2] // Функция обновится только при изменении count2</code>
@@ -155,7 +150,7 @@ export default ComparisonExample;`;
                 </div>
             </div>
 
-            <div>
+            <div className="key-points">
                 <p>
                     Этот пример демонстрирует оптимизацию производительности с помощью <code>useCallback</code> и{' '}
                     <code>memo</code>.

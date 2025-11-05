@@ -46,14 +46,14 @@ const IdComparisonExample: FC = () => {
             </div>
 
             <p className='message info'>
-                Проблема: два поля с одинаковым ID "field-id" конфликтуют. 
+                Проблема: два поля с одинаковым ID "field-id" конфликтуют.
                 Кликните на лейбл первого поля - выделится второе поле!
             </p>
-            
+
             <p className='message warning'>
-                Ручной ID: <span className='highlight'>{manualId}</span> 
-                (одинаковый для двух полей) | 
-                Автоматический ID: <span className='highlight'>{autoId}</span> 
+                Ручной ID: <span className='highlight'>{manualId}</span>
+                (одинаковый для двух полей) |
+                Автоматический ID: <span className='highlight'>{autoId}</span>
                 (уникальный для каждого использования)
             </p>
         </div>
@@ -64,26 +64,21 @@ export default IdComparisonExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 1: Сравнение useId и ручного создания ID'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className='description-container'>
                 <h4>Пошаговая процедура подключения useId:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className='code-highlighter'
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className='steps-container'>
                     <h5>Шаги работы с useId:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Ручное создание ID (антипаттерн):</strong>
                             <br />
                             <code>const manualId = 'field-id';</code>
@@ -94,7 +89,7 @@ export default IdComparisonExample;`;
                             <br />
                             <small>• Проблемы при повторном использовании компонентов</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Автоматическое создание с useId:</strong>
                             <br />
                             <code>const autoId = useId();</code>
@@ -105,7 +100,7 @@ export default IdComparisonExample;`;
                             <br />
                             <small>• Работает на сервере и клиенте (SSR compatible)</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Демонстрация конфликта ID:</strong>
                             <br />
                             <code>{`<input id={manualId} />`} (дважды)</code>
@@ -116,7 +111,7 @@ export default IdComparisonExample;`;
                             <br />
                             <small>• Нарушает accessibility и семантику</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className='step-item'>
                             <strong>Создание производных ID:</strong>
                             <br />
                             <code>{`htmlFor={autoId + '-second'}`}</code>
@@ -134,8 +129,8 @@ export default IdComparisonExample;`;
             <div>
                 <h5>Правила использования useId:</h5>
 
-                <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#1565c0' }}>✅ Когда использовать useId:</h6>
+                <div className='rules-container'>
+                    <h6 className='rules-title-positive'>✅ Когда использовать useId:</h6>
                     <ul>
                         <li>
                             <strong>Связка label и input</strong> - для атрибутов <code>htmlFor</code> и <code>id</code>
@@ -155,7 +150,7 @@ export default IdComparisonExample;`;
                         </li>
                     </ul>
 
-                    <h6 style={{ color: '#c62828' }}>❌ Когда НЕ использовать useId:</h6>
+                    <h6 className='rules-title-negative'>❌ Когда НЕ использовать useId:</h6>
                     <ul>
                         <li>
                             <strong>Для ключей в списках</strong> - используйте уникальные данные из ваших данных
@@ -176,67 +171,61 @@ export default IdComparisonExample;`;
                 </div>
 
                 <h5>Сравнение подходов к генерации ID:</h5>
-                <div style={{ background: '#e8f5e8', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#2e7d32' }}>📊 Сравнительная таблица:</h6>
+                <div className='comparison-table-container'>
+                    <h6 className='comparison-table-title'>📊 Сравнительная таблица:</h6>
 
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                    <table className='comparison-table'>
                         <thead>
-                            <tr style={{ backgroundColor: '#c8e6c9' }}>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Метод
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Уникальность
-                                </th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>SSR</th>
-                                <th style={{ padding: '8px', border: '1px solid #a5d6a7', textAlign: 'left' }}>
-                                    Использование
-                                </th>
+                            <tr>
+                                <th>Метод</th>
+                                <th>Уникальность</th>
+                                <th>SSR</th>
+                                <th>Использование</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>useId()</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>✅ Гарантирована</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>✅ Работает</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>React компоненты</td>
+                                <td>✅ Гарантирована</td>
+                                <td>✅ Работает</td>
+                                <td>React компоненты</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Ручной ID</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>❌ Может конфликтовать</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>✅ Работает</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Статические элементы</td>
+                                <td>Ручной ID</td>
+                                <td>❌ Может конфликтовать</td>
+                                <td>✅ Работает</td>
+                                <td>Статические элементы</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>Math.random()</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>⚠️ Вероятностная</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>❌ Не работает</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Не рекомендуется</td>
+                                <td>⚠️ Вероятностная</td>
+                                <td>❌ Не работает</td>
+                                <td>Не рекомендуется</td>
                             </tr>
                             <tr>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>
+                                <td>
                                     <code>crypto.randomUUID()</code>
                                 </td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>✅ Гарантирована</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>⚠️ Зависит от среды</td>
-                                <td style={{ padding: '8px', border: '1px solid #e8f5e8' }}>Универсальные ID</td>
+                                <td>✅ Гарантирована</td>
+                                <td>⚠️ Зависит от среды</td>
+                                <td>Универсальные ID</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h5>Практические примеры использования useId:</h5>
-                <div style={{ background: '#fff3e0', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#ef6c00' }}>🎯 Реальные сценарии применения:</h6>
+                <div className='examples-container'>
+                    <h6 className='examples-title'>🎯 Реальные сценарии применения:</h6>
 
                     <p>
                         <strong>1. Формы с label и input:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const FormField = ({ label }) => {
     const id = useId();
     return (
@@ -251,7 +240,7 @@ export default IdComparisonExample;`;
                     <p>
                         <strong>2. Группа связанных элементов:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const RadioGroup = () => {
     const groupId = useId();
     return (
@@ -269,15 +258,15 @@ export default IdComparisonExample;`;
                     <p>
                         <strong>3. ARIA описания:</strong>
                     </p>
-                    <pre style={{ background: '#ffe0b2', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                    <pre className='code-example'>
                         {`const AccessibleInput = () => {
     const id = useId();
     return (
         <div>
             <label htmlFor={id}>Пароль:</label>
-            <input 
-                id={id} 
-                type="password" 
+            <input
+                id={id}
+                type="password"
                 aria-describedby={\`\${id}-hint\`}
             />
             <span id={\`\${id}-hint\`}>

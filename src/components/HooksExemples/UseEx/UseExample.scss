@@ -107,3 +107,134 @@
     border-radius: 4px;
     margin-top: 10px;
 }
+
+.description-container {
+    margin-bottom: 25px;
+}
+
+.code-highlighter {
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    margin-bottom: 10px;
+}
+
+.rules-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rules-title-positive {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.rules-title-negative {
+    color: #c62828;
+}
+
+.features-container {
+    background: #f3e5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.features-title {
+    margin-top: 0;
+    color: #7b1fa2;
+}
+
+.code-example {
+    background: #e1bee7;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.process-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.process-title {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.comparison-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.comparison-title {
+    margin-top: 0;
+    color: #1565c0;
+}
+
+.code-traditional {
+    background: #bbdefb;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.code-modern {
+    background: #bbdefb;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.comparison-table-container {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #bbdefb;
+}
+
+.table-header th {
+    padding: 8px;
+    border: 1px solid #90caf9;
+    text-align: left;
+}
+
+.comparison-table td {
+    padding: 8px;
+    border: 1px solid #e3f2fd;
+}
+
+.advantages-container {
+    background: #e8f5e8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.advantages-title {
+    margin-top: 0;
+    color: #2e7d32;
+}

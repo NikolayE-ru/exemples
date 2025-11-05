@@ -74,26 +74,21 @@ export default UserExample;`;
 
     return (
         <AccordionExempleDesc title='Описание примера 2: Данные пользователя с useContext'>
-            <div style={{ marginBottom: '25px' }}>
+            <div className="description-container">
                 <h4>Пошаговая процедура подключения useContext с условным рендерингом:</h4>
 
                 <SyntaxHighlighter
                     language='typescript'
                     style={coy}
-                    customStyle={{
-                        borderRadius: '8px',
-                        fontSize: '14px',
-                        marginTop: '15px',
-                        backgroundColor: '#f8f9fa',
-                    }}
+                    className="code-highlighter"
                 >
                     {codeExample}
                 </SyntaxHighlighter>
 
-                <div style={{ marginTop: '20px' }}>
+                <div className="steps-container">
                     <h5>Шаги работы с useContext для данных пользователя:</h5>
                     <ol>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Создание контекста с nullable типом:</strong>
                             <br />
                             <code>const UserContext = createContext{`<UserType | null>`}(null);</code>
@@ -106,7 +101,7 @@ export default UserExample;`;
                             <br />
                             <small>• Отражает реальный сценарий - данные могут отсутствовать</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Обработка nullable значений в потребителе:</strong>
                             <br />
                             <code>const user = useContext(UserContext);</code>
@@ -119,7 +114,7 @@ export default UserExample;`;
                             <br />
                             <small>• Защита от ошибок при обращении к свойствам</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Условное предоставление контекста:</strong>
                             <br />
                             <code>{`{showUser && (<UserContext.Provider value={user}>...</UserContext.Provider>)}`}</code>
@@ -130,7 +125,7 @@ export default UserExample;`;
                             <br />
                             <small>• Более чистая архитектура приложения</small>
                         </li>
-                        <li style={{ marginBottom: '10px' }}>
+                        <li className="step-item">
                             <strong>Динамическое обновление контекста:</strong>
                             <br />
                             <code>setUser({`{ name: 'Анна', age: 28 }`}); // Загрузка данных</code>
@@ -165,8 +160,8 @@ export default UserExample;`;
                 </ul>
 
                 <h5>Паттерны для работы с nullable контекстом:</h5>
-                <div style={{ background: '#f3e5f5', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
-                    <h6 style={{ marginTop: 0, color: '#7b1fa2' }}>✅ Рекомендуемые подходы:</h6>
+                <div className="patterns-container">
+                    <h6 className="patterns-title">✅ Рекомендуемые подходы:</h6>
                     <ul>
                         <li>
                             <strong>Ранний возврат</strong> - проверка в начале компонента, как в примере
@@ -174,7 +169,7 @@ export default UserExample;`;
                         <li>
                             <strong>Кастомный хук</strong> - создание хука с встроенной проверкой:
                         </li>
-                        <pre style={{ background: '#e1bee7', padding: '10px', borderRadius: '4px', fontSize: '12px' }}>
+                        <pre className="code-pattern">
                             {`const useUser = () => {
     const user = useContext(UserContext);
     if (!user) throw new Error('useUser must be used within UserProvider');
