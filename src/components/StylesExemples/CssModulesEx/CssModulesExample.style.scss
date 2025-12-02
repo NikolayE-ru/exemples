@@ -1,0 +1,97 @@
+.example-container {
+    width: 100%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.example-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+
+    h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #666;
+        line-height: 1.6;
+    }
+}
+
+.example-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-section {
+    margin-bottom: 30px;
+    
+    h3 {
+        color: #444;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+}
+
+.code-block {
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.code-highlighter {
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.note {
+    background-color: #e8f4fd;
+    border-left: 4px solid #3498db;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+    th,
+    td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    thead th {
+        background-color: #f8f9fa;
+        color: #444;
+        font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f3f5;
+    }
+}
+
+.list {
+    padding-left: 20px;
+    margin: 15px 0;
+
+    li {
+        margin-bottom: 8px;
+    }
+}

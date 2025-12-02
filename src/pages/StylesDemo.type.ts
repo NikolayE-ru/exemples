@@ -1,14 +1,12 @@
-export type StyleExample = 
+export type StyleExample =
     | 'sassScss'
     | 'advancedTechniques'
-    | 'integration'
+    | 'PseudoClasses'
     | 'bem'
     | 'classNaming'
+    | 'cssModules'
     | 'flexboxGrid'
     | 'responsiveness'
     | 'mediaFunctions';
 
-export type StyleCategory = 
-    | 'preprocessors'
-    | 'methodologies'
-    | 'modernCss';
+export type StyleCategory = 'preprocessors' | 'methodologies' | 'modernCss';

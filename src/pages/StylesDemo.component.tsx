@@ -1,6 +1,15 @@
 import { FC, useState } from 'react';
 import { StyleExample, StyleCategory } from './StylesDemo.type';
 import './StylesDemo.style.scss';
+import SassExample from '../components/StylesExemples/SassEx/SassExample.component';
+import AdvancedTechniquesExemple from '../components/StylesExemples/AdvancedTechniquesEx/AdvancedTechniquesExemple.component';
+import CssModulesExample from '../components/StylesExemples/CssModulesEx/CssModulesExample.component';
+import PseudoClassesExample from '../components/StylesExemples/PseudoClassesEx/PseudoClassesExample.component';
+import BemExample from '../components/StylesExemples/BemEx/BemExample.component';
+import ClassNamingExample from '../components/StylesExemples/ClassNamingEx/ClassNamingExample.component';
+import MediaFuncExample from '../components/StylesExemples/MediaFuncEx/MediaFuncExample.component';
+import ResponsExample from '../components/StylesExemples/ResponsEx/ResponsExample.component';
+import FlexboxGridExample from '../components/StylesExemples/FlexboxGridEx/FlexboxGridExample.component';
 
 export const StylesShowcase: FC = () => {
     const [activeStyle, setActiveStyle] = useState<StyleExample>('sassScss');
@@ -8,32 +17,34 @@ export const StylesShowcase: FC = () => {
     const renderStyleExample = () => {
         switch (activeStyle) {
             case 'sassScss':
-                return <div className="example-placeholder">Sass/SCSS</div>;
+                return <SassExample />;
             case 'advancedTechniques':
-                return <div className="example-placeholder">Продвинутые техники</div>;
-            case 'integration':
-                return <div className="example-placeholder">Интеграция</div>;
+                return <AdvancedTechniquesExemple />;
+            case 'PseudoClasses':
+                return <PseudoClassesExample />;
             case 'bem':
-                return <div className="example-placeholder">Методология БЭМ</div>;
+                return <BemExample />;
             case 'classNaming':
-                return <div className="example-placeholder">Именование классов</div>;
+                return <ClassNamingExample />;
+            case 'cssModules':
+                return <CssModulesExample />;
             case 'flexboxGrid':
-                return <div className="example-placeholder">CSS Flexbox и Grid</div>;
+                return <FlexboxGridExample />;
             case 'responsiveness':
-                return <div className="example-placeholder">Адаптивность</div>;
+                return <ResponsExample />;
             case 'mediaFunctions':
-                return <div className="example-placeholder">Медиа-функции</div>;
+                return <MediaFuncExample />;
             default:
-                return <div className="example-placeholder">Sass/SCSS</div>;
+                return <SassExample />;
         }
     };
 
     const getCategoryItems = (category: StyleCategory): StyleExample[] => {
         switch (category) {
             case 'preprocessors':
-                return ['sassScss', 'advancedTechniques', 'integration'];
+                return ['sassScss', 'advancedTechniques', 'PseudoClasses'];
             case 'methodologies':
-                return ['bem', 'classNaming'];
+                return ['bem', 'classNaming', 'cssModules'];
             case 'modernCss':
                 return ['flexboxGrid', 'responsiveness', 'mediaFunctions'];
             default:
@@ -44,9 +55,9 @@ export const StylesShowcase: FC = () => {
     const getCategoryTitle = (category: StyleCategory): string => {
         switch (category) {
             case 'preprocessors':
-                return 'Препроцессоры';
+                return 'Препроцессор и псевдоклассы';
             case 'methodologies':
-                return 'Методологии и архитектура CSS';
+                return 'Методология и архитектура CSS';
             case 'modernCss':
                 return 'Современный CSS и адаптивный дизайн';
             default:
@@ -60,12 +71,14 @@ export const StylesShowcase: FC = () => {
                 return 'Sass/SCSS';
             case 'advancedTechniques':
                 return 'Продвинутые техники';
-            case 'integration':
-                return 'Интеграция';
+            case 'PseudoClasses':
+                return 'Псевдоклассы';
             case 'bem':
                 return 'Методология БЭМ';
             case 'classNaming':
                 return 'Именование классов';
+                case 'cssModules':
+                    return 'Модули CSS';
             case 'flexboxGrid':
                 return 'CSS Flexbox и Grid';
             case 'responsiveness':
