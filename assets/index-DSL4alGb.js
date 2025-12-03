@@ -2389,4 +2389,60 @@ body {
 .footer {
   grid-area: footer;
   background-color: #9370db;
-}`}),n.jsxs("div",{className:"grid-container",children:[n.jsx("div",{className:"grid-item header",children:"Header"}),n.jsx("div",{className:"grid-item sidebar",children:"Sidebar"}),n.jsx("div",{className:"grid-item main",children:"Main"}),n.jsx("div",{className:"grid-item aside",children:"Aside"}),n.jsx("div",{className:"grid-item footer",children:"Footer"})]})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h4",{children:"Когда использовать Flexbox, а когда Grid?"}),n.jsx("p",{children:"Используйте Flexbox для:"}),n.jsxs("ul",{children:[n.jsx("li",{children:"Расположения элементов в одной строке или столбце"}),n.jsx("li",{children:"Выравнивания элементов внутри контейнера"}),n.jsx("li",{children:"Создания навигационных меню"}),n.jsx("li",{children:"Центрирования элементов"})]}),n.jsx("p",{children:"Используйте Grid для:"}),n.jsxs("ul",{children:[n.jsx("li",{children:"Создания сложных двухмерных макетов"}),n.jsx("li",{children:"Разметки целых страниц"}),n.jsx("li",{children:"Создания сеток карточек"}),n.jsx("li",{children:"Когда важен контроль над строками и столбцами одновременно"})]}),n.jsx("p",{children:"Совместное использование:"}),n.jsx("p",{children:"Flexbox и Grid могут использоваться вместе. Например, Grid для общего макета страницы, а Flexbox для выравнивания элементов внутри отдельных областей сетки."})]})]})})]}),SA=()=>{const[e,t]=C.useState("sassScss"),a=()=>{switch(e){case"sassScss":return n.jsx(Tf,{});case"advancedTechniques":return n.jsx(gA,{});case"PseudoClasses":return n.jsx(hA,{});case"bem":return n.jsx(fA,{});case"classNaming":return n.jsx(bA,{});case"cssModules":return n.jsx(mA,{});case"flexboxGrid":return n.jsx(yA,{});case"responsiveness":return n.jsx(EA,{});case"mediaFunctions":return n.jsx(xA,{});default:return n.jsx(Tf,{})}},r=l=>{switch(l){case"preprocessors":return["sassScss","advancedTechniques","PseudoClasses"];case"methodologies":return["bem","classNaming","cssModules"];case"modernCss":return["flexboxGrid","responsiveness","mediaFunctions"];default:return[]}},i=l=>{switch(l){case"preprocessors":return"Препроцессор и псевдоклассы";case"methodologies":return"Методология и архитектура CSS";case"modernCss":return"Современный CSS и адаптивный дизайн";default:return""}},s=l=>{switch(l){case"sassScss":return"Sass/SCSS";case"advancedTechniques":return"Продвинутые техники";case"PseudoClasses":return"Псевдоклассы";case"bem":return"Методология БЭМ";case"classNaming":return"Именование классов";case"cssModules":return"Модули CSS";case"flexboxGrid":return"CSS Flexbox и Grid";case"responsiveness":return"Адаптивность";case"mediaFunctions":return"Медиа-функции";default:return""}};return n.jsxs("div",{className:"styles-demo",children:[n.jsx("header",{className:"demo-header",children:n.jsx("h1",{children:"Современный CSS"})}),n.jsx("nav",{className:"demo-nav demo-nav--styles",children:["preprocessors","methodologies","modernCss"].map(l=>n.jsxs("div",{className:"nav-category",children:[n.jsx("h3",{className:"category-title",children:i(l)}),n.jsx("div",{className:"category-buttons",children:r(l).map(o=>n.jsx("button",{className:`nav-button ${e===o?"active":""}`,onClick:()=>t(o),children:s(o)},o))})]},l))}),n.jsx("main",{className:"demo-content",children:a()})]})},vA=({activeView:e,onViewChange:t})=>n.jsxs("div",{className:"navigation",children:[n.jsx("button",{className:`nav-button ${e==="hooks"?"active":""}`,onClick:()=>t("hooks"),children:"Хуки"}),n.jsx("button",{className:`nav-button ${e==="styles"?"active":""}`,onClick:()=>t("styles"),children:"Стили"})]}),NA=()=>{const[e,t]=C.useState("hooks");return n.jsxs("div",{className:"app",children:[n.jsx(vA,{activeView:e,onViewChange:t}),e==="hooks"?n.jsx(pA,{}):n.jsx(SA,{})]})};qv.createRoot(document.getElementById("root")).render(n.jsx(NA,{}));
+}`}),n.jsxs("div",{className:"grid-container",children:[n.jsx("div",{className:"grid-item header",children:"Header"}),n.jsx("div",{className:"grid-item sidebar",children:"Sidebar"}),n.jsx("div",{className:"grid-item main",children:"Main"}),n.jsx("div",{className:"grid-item aside",children:"Aside"}),n.jsx("div",{className:"grid-item footer",children:"Footer"})]})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h4",{children:"Сокращенное написание для grid-area: span / span"}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h5",{children:"1. Синтаксис"}),n.jsx("p",{children:"grid-area: <row-start> / <column-start> / <row-end> / <column-end>"})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h5",{children:"2. Ключевое слово span"}),n.jsx("p",{children:"Указывает, сколько строк или столбцов должен занимать элемент."})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h5",{children:"3. Примеры использования"}),n.jsx(k,{language:"css",style:I,className:"code-highlighter",children:`.grid-item-1 {
+  grid-area: 1 / 1 / span 2 / span 2; /* начинается в первой строке, первом столбце и занимает 2 строки и 2 столбца */
+}
+
+.grid-item-2 {
+  grid-area: span 3 / span 1; /* занимает 3 строки и 1 столбец (автоматическое размещение) */
+}
+
+.grid-item-3 {
+  grid-row: span 2; /* занимает 2 строки */
+}
+
+.grid-item-4 {
+  grid-column: span 3; /* занимает 3 столбца */
+}`})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h5",{children:"4. Преимущества"}),n.jsxs("ul",{children:[n.jsx("li",{children:"Более компактная запись по сравнению с отдельным указанием grid-row-start, grid-column-start и т.д."}),n.jsx("li",{children:"Удобно для создания сложных макетов"})]})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h5",{children:"Пример использования span"}),n.jsx(k,{language:"css",style:I,className:"code-highlighter",children:`.span-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.span-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 5px;
+}
+
+.span-item-1 {
+  background-color: #4a90e2;
+  grid-area: 1 / 1 / span 2 / span 2;
+}
+
+.span-item-2 {
+  background-color: #50c878;
+  grid-area: 1 / 3;
+}
+
+.span-item-3 {
+  background-color: #ff6b6b;
+  grid-area: 1 / 4 / span 2;
+}
+
+.span-item-4 {
+  background-color: #ffa500;
+  grid-area: 2 / 3;
+}
+
+.span-item-5 {
+  background-color: #9370db;
+  grid-area: 3 / 1 / span 1 / span 4;
+}`}),n.jsxs("div",{className:"span-container",children:[n.jsx("div",{className:"span-item span-item-1",children:"Элемент 1 (2x2)"}),n.jsx("div",{className:"span-item span-item-2",children:"Элемент 2"}),n.jsx("div",{className:"span-item span-item-3",children:"Элемент 3 (2 строки)"}),n.jsx("div",{className:"span-item span-item-4",children:"Элемент 4"}),n.jsx("div",{className:"span-item span-item-5",children:"Элемент 5 (4 столбца)"})]})]})]}),n.jsxs("div",{className:"feature-block",children:[n.jsx("h4",{children:"Когда использовать Flexbox, а когда Grid?"}),n.jsx("p",{children:"Используйте Flexbox для:"}),n.jsxs("ul",{children:[n.jsx("li",{children:"Расположения элементов в одной строке или столбце"}),n.jsx("li",{children:"Выравнивания элементов внутри контейнера"}),n.jsx("li",{children:"Создания навигационных меню"}),n.jsx("li",{children:"Центрирования элементов"})]}),n.jsx("p",{children:"Используйте Grid для:"}),n.jsxs("ul",{children:[n.jsx("li",{children:"Создания сложных двухмерных макетов"}),n.jsx("li",{children:"Разметки целых страниц"}),n.jsx("li",{children:"Создания сеток карточек"}),n.jsx("li",{children:"Когда важен контроль над строками и столбцами одновременно"})]}),n.jsx("p",{children:"Совместное использование:"}),n.jsx("p",{children:"Flexbox и Grid могут использоваться вместе. Например, Grid для общего макета страницы, а Flexbox для выравнивания элементов внутри отдельных областей сетки."})]})]})})]}),SA=()=>{const[e,t]=C.useState("sassScss"),a=()=>{switch(e){case"sassScss":return n.jsx(Tf,{});case"advancedTechniques":return n.jsx(gA,{});case"PseudoClasses":return n.jsx(hA,{});case"bem":return n.jsx(fA,{});case"classNaming":return n.jsx(bA,{});case"cssModules":return n.jsx(mA,{});case"flexboxGrid":return n.jsx(yA,{});case"responsiveness":return n.jsx(EA,{});case"mediaFunctions":return n.jsx(xA,{});default:return n.jsx(Tf,{})}},r=l=>{switch(l){case"preprocessors":return["sassScss","advancedTechniques","PseudoClasses"];case"methodologies":return["bem","classNaming","cssModules"];case"modernCss":return["flexboxGrid","responsiveness","mediaFunctions"];default:return[]}},i=l=>{switch(l){case"preprocessors":return"Препроцессор и псевдоклассы";case"methodologies":return"Методология и архитектура CSS";case"modernCss":return"Современный CSS и адаптивный дизайн";default:return""}},s=l=>{switch(l){case"sassScss":return"Sass/SCSS";case"advancedTechniques":return"Продвинутые техники";case"PseudoClasses":return"Псевдоклассы";case"bem":return"Методология БЭМ";case"classNaming":return"Именование классов";case"cssModules":return"Модули CSS";case"flexboxGrid":return"CSS Flexbox и Grid";case"responsiveness":return"Адаптивность";case"mediaFunctions":return"Медиа-функции";default:return""}};return n.jsxs("div",{className:"styles-demo",children:[n.jsx("header",{className:"demo-header",children:n.jsx("h1",{children:"Современный CSS"})}),n.jsx("nav",{className:"demo-nav demo-nav--styles",children:["preprocessors","methodologies","modernCss"].map(l=>n.jsxs("div",{className:"nav-category",children:[n.jsx("h3",{className:"category-title",children:i(l)}),n.jsx("div",{className:"category-buttons",children:r(l).map(o=>n.jsx("button",{className:`nav-button ${e===o?"active":""}`,onClick:()=>t(o),children:s(o)},o))})]},l))}),n.jsx("main",{className:"demo-content",children:a()})]})},vA=({activeView:e,onViewChange:t})=>n.jsxs("div",{className:"navigation",children:[n.jsx("button",{className:`nav-button ${e==="hooks"?"active":""}`,onClick:()=>t("hooks"),children:"Хуки"}),n.jsx("button",{className:`nav-button ${e==="styles"?"active":""}`,onClick:()=>t("styles"),children:"Стили"})]}),NA=()=>{const[e,t]=C.useState("hooks");return n.jsxs("div",{className:"app",children:[n.jsx(vA,{activeView:e,onViewChange:t}),e==="hooks"?n.jsx(pA,{}):n.jsx(SA,{})]})};qv.createRoot(document.getElementById("root")).render(n.jsx(NA,{}));
