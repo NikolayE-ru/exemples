@@ -209,6 +209,106 @@ const FlexboxGridExample: FC = () => {
           </div>
 
           <div className={'feature-block'}>
+            <h4>Сокращенное написание для grid-area: span / span</h4>
+
+            <div className={'feature-block'}>
+              <h5>1. Синтаксис</h5>
+              <p>grid-area: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</p>
+            </div>
+
+            <div className={'feature-block'}>
+              <h5>2. Ключевое слово span</h5>
+              <p>Указывает, сколько строк или столбцов должен занимать элемент.</p>
+            </div>
+
+            <div className={'feature-block'}>
+              <h5>3. Примеры использования</h5>
+              <SyntaxHighlighter language='css' style={coy} className='code-highlighter'>
+{`.grid-item-1 {
+  grid-area: 1 / 1 / span 2 / span 2; /* начинается в первой строке, первом столбце и занимает 2 строки и 2 столбца */
+}
+
+.grid-item-2 {
+  grid-area: span 3 / span 1; /* занимает 3 строки и 1 столбец (автоматическое размещение) */
+}
+
+.grid-item-3 {
+  grid-row: span 2; /* занимает 2 строки */
+}
+
+.grid-item-4 {
+  grid-column: span 3; /* занимает 3 столбца */
+}`}
+              </SyntaxHighlighter>
+            </div>
+
+            <div className={'feature-block'}>
+              <h5>4. Преимущества</h5>
+              <ul>
+                <li>Более компактная запись по сравнению с отдельным указанием grid-row-start, grid-column-start и т.д.</li>
+                <li>Удобно для создания сложных макетов</li>
+              </ul>
+            </div>
+
+            <div className={'feature-block'}>
+              <h5>Пример использования span</h5>
+              <SyntaxHighlighter language='css' style={coy} className='code-highlighter'>
+{`.span-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.span-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 5px;
+}
+
+.span-item-1 {
+  background-color: #4a90e2;
+  grid-area: 1 / 1 / span 2 / span 2;
+}
+
+.span-item-2 {
+  background-color: #50c878;
+  grid-area: 1 / 3;
+}
+
+.span-item-3 {
+  background-color: #ff6b6b;
+  grid-area: 1 / 4 / span 2;
+}
+
+.span-item-4 {
+  background-color: #ffa500;
+  grid-area: 2 / 3;
+}
+
+.span-item-5 {
+  background-color: #9370db;
+  grid-area: 3 / 1 / span 1 / span 4;
+}`}
+              </SyntaxHighlighter>
+
+              <div className="span-container">
+                <div className="span-item span-item-1">Элемент 1 (2x2)</div>
+                <div className="span-item span-item-2">Элемент 2</div>
+                <div className="span-item span-item-3">Элемент 3 (2 строки)</div>
+                <div className="span-item span-item-4">Элемент 4</div>
+                <div className="span-item span-item-5">Элемент 5 (4 столбца)</div>
+              </div>
+            </div>
+          </div>
+
+          <div className={'feature-block'}>
             <h4>Когда использовать Flexbox, а когда Grid?</h4>
             <p>Используйте Flexbox для:</p>
             <ul>
